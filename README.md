@@ -1,1 +1,6 @@
 "# ASTRA" 
+Astra es una aplicacion diseñada pensando en el usuario administrador de un consultorio medico, desarrollada por el equipo de Astrosoft formado por estudiantes
+de la Universidad Tecnologica de Ciudad Juarez, mientras cursamos el tercer cuatrimestre de la carrera como proyecto debemos desarrollar una aplicacion funcional por lo que nuestro equipo desarrollo ASTRA como una alternativa gratuita y libre para facilitar la tarea estructurar y organizar la informacion de pacientes y sus respectivas citas medicas para consultorios de la comunidad y micronegocios de atencion medidca con el objetivo de ayudar a las personas a tener un mejor manejo de su salud fisica y/o emocional-mental
+
+Astra is a software application designed for the user administrator of a medical office. It was developed by the Astrosoft team, a group of students.
+The Technological University of Ciudad Juárez is currently developing a functional application as a project to facilitate the task of structuring and organizing patient information and their respective medical appointments for community clinics and micro-businesses. This free alternative, named ASTRA, is intended to help people manage their physical health and/or emotional and mental well-being.

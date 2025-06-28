@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.txtRegistroUsuario = new System.Windows.Forms.TextBox();
             this.txtRegistroContraseña = new System.Windows.Forms.TextBox();
+            this.txtRegistroUsuario = new System.Windows.Forms.TextBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,58 +47,60 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1315, 662);
+            this.groupBox1.Size = new System.Drawing.Size(902, 867);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // txtRegistroContraseña
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(538, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario";
+            this.txtRegistroContraseña.Location = new System.Drawing.Point(273, 459);
+            this.txtRegistroContraseña.Name = "txtRegistroContraseña";
+            this.txtRegistroContraseña.PasswordChar = '*';
+            this.txtRegistroContraseña.Size = new System.Drawing.Size(310, 44);
+            this.txtRegistroContraseña.TabIndex = 4;
             // 
-            // label2
+            // txtRegistroUsuario
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(525, 347);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 37);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Contraseña";
+            this.txtRegistroUsuario.Location = new System.Drawing.Point(273, 225);
+            this.txtRegistroUsuario.Name = "txtRegistroUsuario";
+            this.txtRegistroUsuario.Size = new System.Drawing.Size(310, 44);
+            this.txtRegistroUsuario.TabIndex = 3;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(492, 545);
+            this.btnRegistrar.Location = new System.Drawing.Point(298, 722);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(244, 88);
             this.btnRegistrar.TabIndex = 2;
             this.btnRegistrar.Text = "Registrar usuario";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             // 
-            // txtRegistroUsuario
+            // label2
             // 
-            this.txtRegistroUsuario.Location = new System.Drawing.Point(457, 217);
-            this.txtRegistroUsuario.Name = "txtRegistroUsuario";
-            this.txtRegistroUsuario.Size = new System.Drawing.Size(310, 44);
-            this.txtRegistroUsuario.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(325, 359);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 37);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Contraseña";
             // 
-            // txtRegistroContraseña
+            // label1
             // 
-            this.txtRegistroContraseña.Location = new System.Drawing.Point(457, 449);
-            this.txtRegistroContraseña.Name = "txtRegistroContraseña";
-            this.txtRegistroContraseña.Size = new System.Drawing.Size(310, 44);
-            this.txtRegistroContraseña.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(380, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Usuario";
             // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1330, 665);
+            this.ClientSize = new System.Drawing.Size(923, 871);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Registro";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

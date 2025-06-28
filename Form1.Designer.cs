@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,23 +60,47 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(132, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(139, 371);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(314, 37);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "¿No está registrado?";
             // 
-            // label2
+            // txtContraseña
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(138, 241);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 37);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Contraseña";
+            this.txtContraseña.Location = new System.Drawing.Point(398, 233);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(347, 44);
+            this.txtContraseña.TabIndex = 6;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(421, 112);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(333, 44);
+            this.txtUsuario.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(407, 541);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(189, 56);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(103, 533);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 64);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Iniciar sesión";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // linkLabel1
             // 
@@ -89,51 +113,28 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Inicie sesión aqui";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(103, 533);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 64);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Iniciar sesión";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(138, 241);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 37);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Contraseña";
             // 
-            // button2
+            // label1
             // 
-            this.button2.Location = new System.Drawing.Point(407, 541);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 56);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(421, 112);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(333, 44);
-            this.txtUsuario.TabIndex = 5;
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(398, 233);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(347, 44);
-            this.txtContraseña.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 371);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(314, 37);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "¿No está registrado?";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(132, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Usuario";
             // 
             // Form1
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 665);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

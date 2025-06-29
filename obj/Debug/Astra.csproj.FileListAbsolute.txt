@@ -10,3 +10,4 @@ C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.csproj.CoreCompileInputs.cache
 C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.exe
 C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.pdb
 C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.exe.config
+C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.Form3.resources

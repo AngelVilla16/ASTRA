@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,26 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.Security.Cryptography;
-
-
-
 
 namespace Astra
 {
-   
-    public partial class Form2 : Form
+    public partial class Form3 : Form
     {
-        
-        public Form2()
+        public Form3()
         {
             InitializeComponent();
-        }
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }

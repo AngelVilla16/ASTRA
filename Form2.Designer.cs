@@ -40,37 +40,43 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtRegistroContraseña);
             this.groupBox1.Controls.Add(this.txtRegistroUsuario);
             this.groupBox1.Controls.Add(this.btnRegistrar);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 0);
+            this.groupBox1.Location = new System.Drawing.Point(-6, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(902, 867);
+            this.groupBox1.Size = new System.Drawing.Size(438, 309);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txtRegistroContraseña
             // 
-            this.txtRegistroContraseña.Location = new System.Drawing.Point(273, 459);
+            this.txtRegistroContraseña.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtRegistroContraseña.Location = new System.Drawing.Point(128, 191);
             this.txtRegistroContraseña.Name = "txtRegistroContraseña";
             this.txtRegistroContraseña.PasswordChar = '*';
-            this.txtRegistroContraseña.Size = new System.Drawing.Size(310, 44);
+            this.txtRegistroContraseña.Size = new System.Drawing.Size(179, 20);
             this.txtRegistroContraseña.TabIndex = 4;
             // 
             // txtRegistroUsuario
             // 
-            this.txtRegistroUsuario.Location = new System.Drawing.Point(273, 225);
+            this.txtRegistroUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtRegistroUsuario.Location = new System.Drawing.Point(128, 84);
             this.txtRegistroUsuario.Name = "txtRegistroUsuario";
-            this.txtRegistroUsuario.Size = new System.Drawing.Size(310, 44);
+            this.txtRegistroUsuario.Size = new System.Drawing.Size(179, 20);
             this.txtRegistroUsuario.TabIndex = 3;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(298, 722);
+            this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRegistrar.Location = new System.Drawing.Point(163, 255);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(244, 88);
+            this.btnRegistrar.Size = new System.Drawing.Size(131, 30);
             this.btnRegistrar.TabIndex = 2;
             this.btnRegistrar.Text = "Registrar usuario";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -78,26 +84,28 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 359);
+            this.label2.Location = new System.Drawing.Point(194, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 37);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(380, 91);
+            this.label1.Location = new System.Drawing.Point(194, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 37);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(923, 871);
+            this.ClientSize = new System.Drawing.Size(434, 311);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";

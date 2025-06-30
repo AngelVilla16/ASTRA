@@ -66,7 +66,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(66, 220);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 20);
+            this.label3.Size = new System.Drawing.Size(471, 55);
             this.label3.TabIndex = 7;
             this.label3.Text = "¿No está registrado?";
             // 
@@ -77,7 +77,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(225, 132);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(189, 26);
+            this.txtContraseña.Size = new System.Drawing.Size(189, 62);
             this.txtContraseña.TabIndex = 6;
             // 
             // txtUsuario
@@ -86,7 +86,7 @@
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(225, 56);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(189, 26);
+            this.txtUsuario.Size = new System.Drawing.Size(189, 62);
             this.txtUsuario.TabIndex = 5;
             // 
             // btnCancelar
@@ -99,6 +99,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnIniciarSesion
             // 
@@ -120,7 +121,7 @@
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
             this.linkLabel1.Location = new System.Drawing.Point(262, 220);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(130, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(391, 55);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Inicie sesión aqui";
@@ -132,7 +133,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(66, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.Size = new System.Drawing.Size(274, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
@@ -142,7 +143,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(66, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.Size = new System.Drawing.Size(190, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 

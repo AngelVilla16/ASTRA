@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using System.IO;
 
+
 namespace Astra
 {
     public partial class Form3 : Form
@@ -61,6 +62,46 @@ namespace Astra
                 CargarPacientes();
             };
            form4.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            if(dgvPacientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor seleccione un paciente a eliminar");
+                return;
+            }
+            DialogResult confirmacion = MessageBox.Show("¿Esta seguro de que desea eliminar al paciente? ", "Confirmar eliminacion ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirmacion == DialogResult.No)
+                return;
+
+            int idpaciente = Convert.ToInt32
+                (dgvPacientes.SelectedRows[0].Cells["IdPaciente"].Value);
+            string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+
+            using (OleDbConnection conn = new OleDbConnection(conexion))
+            {
+                try
+                {
+                    conn.Open();
+                    string eliminar = "DELETE FROM Pacientes WHERE IdPaciente = ?";
+                    OleDbCommand cmd = new OleDbCommand(eliminar, conn);
+                    cmd.Parameters.AddWithValue("?", idpaciente);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Paciente eliminado correctamente");
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudo eliminar el paciente " + ex.Message);
+
+                }
+            }
+            CargarPacientes();
+
         }
     }
 }

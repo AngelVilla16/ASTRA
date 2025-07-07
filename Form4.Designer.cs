@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtPadecimientos = new System.Windows.Forms.TextBox();
+            this.txtAlergias = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.txtAltura = new System.Windows.Forms.TextBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -36,14 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.txtEdad = new System.Windows.Forms.TextBox();
-            this.txtAltura = new System.Windows.Forms.TextBox();
-            this.txtPeso = new System.Windows.Forms.TextBox();
-            this.txtAlergias = new System.Windows.Forms.TextBox();
-            this.txtPadecimientos = new System.Windows.Forms.TextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +71,66 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar paciente";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Location = new System.Drawing.Point(290, 339);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(101, 39);
+            this.btnAgregar.TabIndex = 14;
+            this.btnAgregar.Text = "Confirmar paciente nuevo";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // txtPadecimientos
+            // 
+            this.txtPadecimientos.Location = new System.Drawing.Point(448, 218);
+            this.txtPadecimientos.Name = "txtPadecimientos";
+            this.txtPadecimientos.Size = new System.Drawing.Size(149, 20);
+            this.txtPadecimientos.TabIndex = 13;
+            // 
+            // txtAlergias
+            // 
+            this.txtAlergias.Location = new System.Drawing.Point(230, 218);
+            this.txtAlergias.Name = "txtAlergias";
+            this.txtAlergias.Size = new System.Drawing.Size(147, 20);
+            this.txtAlergias.TabIndex = 12;
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(49, 218);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(100, 20);
+            this.txtPeso.TabIndex = 11;
+            // 
+            // txtAltura
+            // 
+            this.txtAltura.Location = new System.Drawing.Point(448, 89);
+            this.txtAltura.Name = "txtAltura";
+            this.txtAltura.Size = new System.Drawing.Size(100, 20);
+            this.txtAltura.TabIndex = 10;
+            // 
+            // txtEdad
+            // 
+            this.txtEdad.Location = new System.Drawing.Point(290, 89);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(100, 20);
+            this.txtEdad.TabIndex = 9;
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Location = new System.Drawing.Point(137, 89);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(100, 20);
+            this.txtApellidos.TabIndex = 8;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(11, 90);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 7;
             // 
             // label7
             // 
@@ -134,71 +195,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(11, 90);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 7;
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Location = new System.Drawing.Point(137, 89);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(100, 20);
-            this.txtApellidos.TabIndex = 8;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(290, 89);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(100, 20);
-            this.txtEdad.TabIndex = 9;
-            // 
-            // txtAltura
-            // 
-            this.txtAltura.Location = new System.Drawing.Point(448, 89);
-            this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(100, 20);
-            this.txtAltura.TabIndex = 10;
-            // 
-            // txtPeso
-            // 
-            this.txtPeso.Location = new System.Drawing.Point(49, 218);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(100, 20);
-            this.txtPeso.TabIndex = 11;
-            // 
-            // txtAlergias
-            // 
-            this.txtAlergias.Location = new System.Drawing.Point(230, 218);
-            this.txtAlergias.Name = "txtAlergias";
-            this.txtAlergias.Size = new System.Drawing.Size(147, 20);
-            this.txtAlergias.TabIndex = 12;
-            // 
-            // txtPadecimientos
-            // 
-            this.txtPadecimientos.Location = new System.Drawing.Point(448, 218);
-            this.txtPadecimientos.Name = "txtPadecimientos";
-            this.txtPadecimientos.Size = new System.Drawing.Size(149, 20);
-            this.txtPadecimientos.TabIndex = 13;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(290, 339);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(101, 39);
-            this.btnAgregar.TabIndex = 14;
-            this.btnAgregar.Text = "Confirmar paciente nuevo";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4";
             this.Text = "Nuevo paciente";
             this.groupBox1.ResumeLayout(false);

@@ -29,12 +29,14 @@ namespace Astra
         private void CargarPacientes()
         {
             string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
-
+            //Conexion y uso de la base de datos
             using (OleDbConnection conn = new OleDbConnection(conexion))
-            {
+            {//Probamos la conexion y si se abre la base de datos
                 try
                 {
                     conn.Open();
+                    //Seleccionamos los pacientes y creamos un adaptador
+                    //El adaptador al momento de creear una tabla lo que hace es rellenar esta tabla con los datos actualizados del datagrid
                     string consulta = "SELECT * FROM Pacientes";
                     OleDbDataAdapter adaptador = new OleDbDataAdapter(consulta, conn);
                     DataTable tabla = new DataTable();
@@ -48,11 +50,12 @@ namespace Astra
 
             }
         }
+        //Al momento de abrir el formulario se manda a llamar al metodo de carga pacientes
         private void Form3_Load(object sender, EventArgs e)
         {
             CargarPacientes();
         }
-
+        //El boton de agregar pacientes
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
             Form4 form4 = new Form4();

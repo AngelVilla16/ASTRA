@@ -3,19 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\Angel\\source\\repos\\Astra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|c:\\users\\angel\\source\\repos\\astra\\form5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|c:\\users\\angel\\source\\repos\\astra\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,19 +19,20 @@
       "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|c:\\users\\angel\\source\\repos\\astra\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|c:\\users\\angel\\source\\repos\\astra\\form5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Astra||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{252A4CF3-BCA6-4AC4-8014-F3C1519F3CE0}|Astra.csproj|C:\\Users\\Angel\\source\\repos\\Astra\\form3.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,26 +51,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA1wCUAAABnAAAAAAAAAA==",
+              "Title": "Form5.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form5.cs",
+              "RelativeDocumentMoniker": "Form5.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form5.cs",
+              "RelativeToolTip": "Form5.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAADcAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T19:47:44.612Z",
+              "WhenOpened": "2025-07-14T02:16:20.438Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Form4.cs [Dise\u00F1o]",
+              "Title": "Form4.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form4.cs",
               "RelativeDocumentMoniker": "Form4.cs",
-              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form4.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form4.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form4.cs",
+              "RelativeToolTip": "Form4.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAkwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T18:40:10.982Z",
+              "WhenOpened": "2025-07-06T18:41:38.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form5.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form5.cs",
+              "RelativeDocumentMoniker": "Form5.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form5.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form5.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T02:10:09.422Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
@@ -84,14 +95,14 @@
               "RelativeDocumentMoniker": "Form3.cs",
               "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form3.cs",
               "RelativeToolTip": "Form3.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAApwIgAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-06T18:38:13.809Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Form3.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form3.cs",
               "RelativeDocumentMoniker": "Form3.cs",
@@ -103,32 +114,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form4.cs",
-              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form4.cs",
-              "RelativeDocumentMoniker": "Form4.cs",
-              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form4.cs",
-              "RelativeToolTip": "Form4.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAIwCUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T18:41:38.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
               "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAYwEcAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAwEcAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T19:36:54.271Z"
+              "WhenOpened": "2025-06-28T19:36:54.271Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -147,22 +146,12 @@
               "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Form2.cs [Dise\u00F1o]",
               "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-27T13:54:51.09Z"
+              "WhenOpened": "2025-06-27T13:54:51.09Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Astra",
-              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Astra.csproj",
-              "RelativeDocumentMoniker": "Astra.csproj",
-              "ToolTip": "C:\\Users\\Angel\\source\\repos\\Astra\\Astra.csproj",
-              "RelativeToolTip": "Astra.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-07T13:36:52.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Form3.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\Astra\\Form3.Designer.cs",
               "RelativeDocumentMoniker": "Form3.Designer.cs",

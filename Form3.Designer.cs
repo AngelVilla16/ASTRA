@@ -105,6 +105,7 @@
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar cita";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -126,6 +127,7 @@
             this.btnAgendar.TabIndex = 2;
             this.btnAgendar.Text = "Agendar cita";
             this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // btnAgregarPaciente
             // 

@@ -106,5 +106,43 @@ namespace Astra
             CargarPacientes();
 
         }
+
+        private void btnAgendar_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvPacientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un paciente para agendar su cita por favor");
+                return;
+            }
+            int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            Form5 form5 = new Form5(id);
+            form5.CitaAgregada += () =>
+            {
+                CargarPacientes();
+            };
+            
+            
+            form5.ShowDialog();
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dgvPacientes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un paciente para agendar su cita por favor");
+                return;
+            }
+            int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            Form5 form5 = new Form5(id);
+            form5.CitaAgregada += () =>
+            {
+                CargarPacientes();
+            };
+
+
+            form5.ShowDialog();
+        }
     }
 }

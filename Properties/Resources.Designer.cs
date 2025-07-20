@@ -63,9 +63,9 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap calendar {
+        internal static System.Drawing.Bitmap Agendar {
             get {
-                object obj = ResourceManager.GetObject("calendar", resourceCulture);
+                object obj = ResourceManager.GetObject("Agendar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap calendar__1_ {
+        internal static System.Drawing.Bitmap Agregar {
             get {
-                object obj = ResourceManager.GetObject("calendar (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("Agregar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap date {
+        internal static System.Drawing.Bitmap Borrar {
             get {
-                object obj = ResourceManager.GetObject("date", resourceCulture);
+                object obj = ResourceManager.GetObject("Borrar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete_friend {
+        internal static System.Drawing.Bitmap Eliminar {
             get {
-                object obj = ResourceManager.GetObject("delete-friend", resourceCulture);
+                object obj = ResourceManager.GetObject("Eliminar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap flexible_schedule {
+        internal static System.Drawing.Bitmap Expediente {
             get {
-                object obj = ResourceManager.GetObject("flexible-schedule", resourceCulture);
+                object obj = ResourceManager.GetObject("Expediente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,19 +123,9 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_file {
+        internal static System.Drawing.Bitmap Modificar {
             get {
-                object obj = ResourceManager.GetObject("new-file", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user_avatar {
-            get {
-                object obj = ResourceManager.GetObject("user-avatar", resourceCulture);
+                object obj = ResourceManager.GetObject("Modificar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

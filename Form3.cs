@@ -144,5 +144,38 @@ namespace Astra
 
             form5.ShowDialog();
         }
+
+        //Eliminar cita
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {//Variables para obtener los valores de las celdas de acuerdo a su tipo de dato: Fecha y numerico
+            DateTime cita = DateTime.Parse(dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value.ToString());
+            int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            //Variable de nuestra ruta de datos
+           string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+            
+            
+            using (OleDbConnection con  = new OleDbConnection(conexion))
+            { 
+                try
+                {
+                    con.Open();
+                    //Actualizacion de la base de datos
+                    string update = "UPDATE Pacientes SET Proxima_cita = NULL WHERE IdPaciente = ?";
+                    //Comando para agregar valores y actualizar
+                    OleDbCommand cmd = new OleDbCommand(update, con);
+                    
+                    cmd.Parameters.AddWithValue("?", idpaciente);
+                   
+
+                    cmd.ExecuteNonQuery();    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Conexion fallida " + ex.Message);
+                }
+            }
+            CargarPacientes();
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.fondo_1_;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.button2);
@@ -64,25 +65,30 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = global::Astra.Properties.Resources.delete_friend;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(135, 557);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 52);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Eliminar paciente";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnExpediente
             // 
+            this.btnExpediente.BackColor = System.Drawing.Color.Transparent;
+            this.btnExpediente.BackgroundImage = global::Astra.Properties.Resources.new_file;
+            this.btnExpediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExpediente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExpediente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExpediente.Location = new System.Drawing.Point(1147, 557);
             this.btnExpediente.Name = "btnExpediente";
             this.btnExpediente.Size = new System.Drawing.Size(100, 52);
             this.btnExpediente.TabIndex = 7;
-            this.btnExpediente.Text = "Expediente";
-            this.btnExpediente.UseVisualStyleBackColor = true;
+            this.btnExpediente.UseVisualStyleBackColor = false;
             // 
             // dgvPacientes
             // 
@@ -98,47 +104,57 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificar.BackgroundImage = global::Astra.Properties.Resources.flexible_schedule;
+            this.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModificar.Location = new System.Drawing.Point(811, 557);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(100, 52);
             this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "Modificar cita";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackgroundImage = global::Astra.Properties.Resources.calendar__1_;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminar.Location = new System.Drawing.Point(988, 557);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(85, 52);
             this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar cita";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // btnAgendar
             // 
+            this.btnAgendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgendar.BackgroundImage = global::Astra.Properties.Resources.calendar;
+            this.btnAgendar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgendar.Location = new System.Drawing.Point(256, 557);
             this.btnAgendar.Name = "btnAgendar";
             this.btnAgendar.Size = new System.Drawing.Size(96, 52);
             this.btnAgendar.TabIndex = 2;
-            this.btnAgendar.Text = "Agendar cita";
-            this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.UseVisualStyleBackColor = false;
             this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // btnAgregarPaciente
             // 
+            this.btnAgregarPaciente.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarPaciente.BackgroundImage = global::Astra.Properties.Resources.user_avatar;
+            this.btnAgregarPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregarPaciente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarPaciente.Location = new System.Drawing.Point(21, 557);
             this.btnAgregarPaciente.Name = "btnAgregarPaciente";
             this.btnAgregarPaciente.Size = new System.Drawing.Size(83, 52);
             this.btnAgregarPaciente.TabIndex = 1;
-            this.btnAgregarPaciente.Text = "Agregar paciente";
-            this.btnAgregarPaciente.UseVisualStyleBackColor = true;
+            this.btnAgregarPaciente.Text = "\r\n";
+            this.btnAgregarPaciente.UseVisualStyleBackColor = false;
             this.btnAgregarPaciente.Click += new System.EventHandler(this.btnAgregarPaciente_Click);
             // 
             // Form3

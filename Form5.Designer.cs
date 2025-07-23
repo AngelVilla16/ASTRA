@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mcCita = new System.Windows.Forms.MonthCalendar();
             this.btnAgendar = new System.Windows.Forms.Button();
+            this.mcCita = new System.Windows.Forms.MonthCalendar();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cita nueva";
             // 
+            // btnAgendar
+            // 
+            this.btnAgendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgendar.BackgroundImage = global::Astra.Properties.Resources.confuirmarcita;
+            this.btnAgendar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgendar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgendar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAgendar.Location = new System.Drawing.Point(320, 325);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(103, 64);
+            this.btnAgendar.TabIndex = 4;
+            this.btnAgendar.UseVisualStyleBackColor = false;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
+            // 
+            // mcCita
+            // 
+            this.mcCita.Location = new System.Drawing.Point(246, 131);
+            this.mcCita.Name = "mcCita";
+            this.mcCita.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -61,24 +82,6 @@
             this.label2.Size = new System.Drawing.Size(199, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Seleccione la fecha de la cita a agendar";
-            // 
-            // mcCita
-            // 
-            this.mcCita.Location = new System.Drawing.Point(246, 131);
-            this.mcCita.Name = "mcCita";
-            this.mcCita.TabIndex = 3;
-            // 
-            // btnAgendar
-            // 
-            this.btnAgendar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAgendar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgendar.Location = new System.Drawing.Point(278, 350);
-            this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(162, 37);
-            this.btnAgendar.TabIndex = 4;
-            this.btnAgendar.Text = "Agendar cita";
-            this.btnAgendar.UseVisualStyleBackColor = false;
-            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // Form5
             // 

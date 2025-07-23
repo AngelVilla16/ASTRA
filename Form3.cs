@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using Microsoft.Data.SqlClient;
 using System.IO;
 
 
@@ -15,40 +15,62 @@ namespace Astra
 {
     public partial class Form3 : Form
     {
-        OleDbConnection conn = new OleDbConnection();
+      
         string ruta;
         string conexion;
         public Form3()
         {
             InitializeComponent();
             //Direcciones de la base de datos
-            ruta = @"C:\Users\Angel\Documents\Astra.accdb";
-            conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+
+            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
         }
         //Metodo para cargar pacientes en el datagridview
         private void CargarPacientes()
         {
-            string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
-            //Conexion y uso de la base de datos
-            using (OleDbConnection conn = new OleDbConnection(conexion))
+            //La base de datos conexion apunta al archivo local de la base de datos de sqlclient
+
+            // Conexion y uso de la base de datos
+            
+            using (SqlConnection con = new SqlConnection(conexion))
             {//Probamos la conexion y si se abre la base de datos
                 try
                 {
-                    conn.Open();
+                    con.Open();
                     //Seleccionamos los pacientes y creamos un adaptador
                     //El adaptador al momento de creear una tabla lo que hace es rellenar esta tabla con los datos actualizados del datagrid
                     string consulta = "SELECT * FROM Pacientes";
-                    OleDbDataAdapter adaptador = new OleDbDataAdapter(consulta, conn);
-                    DataTable tabla = new DataTable();
-                    adaptador.Fill(tabla);
-                    dgvPacientes.DataSource = tabla;
+
+                    // --- INICIO DE LA CORRECCIÓN SOLICITADA ---
+                    // Cambiado: SqliteDataReader (no se instancia directamente)
+                    // Cambiado: adaptador.Fill(tabla) (no existe, se usa tabla.Load(reader))
+
+                    // Creamos un comando SQLite para ejecutar la consulta
+                    using (SqlCommand comando = new SqlCommand(consulta, con))
+                    {
+                        // Ejecutamos el comando y obtenemos un lector de datos
+                        using (SqlDataReader reader = comando.ExecuteReader())
+                        {
+                            DataTable tabla = new DataTable();
+                            // Llenamos el DataTable con los datos del lector
+                            tabla.Load(reader); // Esta es la función equivalente a 'Fill' para DataTable con un DataReader
+
+                            dgvPacientes.DataSource = tabla;
+                        } // El DataReader se cerrará automáticamente aquí
+                    } // El comando se liberará automáticamente aquí
+                      // --- FIN DE LA CORRECCIÓN SOLICITADA ---
+
                 }
-                catch (Exception ex)
+                catch (SqlException ex) // Cambiado: Exception -> SQLiteException para manejo más específico
                 {
-                    MessageBox.Show("Error al cargar pacietne" + ex.Message);
+                    MessageBox.Show("Error al cargar pacientes: " + ex.Message); // Mensaje mejorado
+                }
+                catch (Exception ex) // Para capturar cualquier otro tipo de excepción no relacionada con SQLite
+                {
+                    MessageBox.Show("Error inesperado al cargar pacientes: " + ex.Message);
                 }
 
-            }
+            } // La conexión se cerrará automáticamente aquí gracias al 'using'
         }
         //Al momento de abrir el formulario se manda a llamar al metodo de carga pacientes
         private void Form3_Load(object sender, EventArgs e)
@@ -82,16 +104,16 @@ namespace Astra
 
             int idpaciente = Convert.ToInt32
                 (dgvPacientes.SelectedRows[0].Cells["IdPaciente"].Value);
-            string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+           
 
-            using (OleDbConnection conn = new OleDbConnection(conexion))
+            using (SqlConnection conn = new SqlConnection(conexion))
             {
                 try
                 {
                     conn.Open();
-                    string eliminar = "DELETE FROM Pacientes WHERE IdPaciente = ?";
-                    OleDbCommand cmd = new OleDbCommand(eliminar, conn);
-                    cmd.Parameters.AddWithValue("?", idpaciente);
+                    string eliminar = "DELETE FROM Pacientes WHERE IdPaciente = @IdPaciente";
+                    SqlCommand cmd = new SqlCommand(eliminar,conn);
+                    cmd.Parameters.AddWithValue("@IdPaciente", idpaciente);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Paciente eliminado correctamente");
 
@@ -148,23 +170,35 @@ namespace Astra
         //Eliminar cita
         private void btnEliminar_Click(object sender, EventArgs e)
         {//Variables para obtener los valores de las celdas de acuerdo a su tipo de dato: Fecha y numerico
-            DateTime cita = DateTime.Parse(dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value.ToString());
-            int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            DateTime cita;
+
+             
+            object valor = dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value;
+
+            if (string.IsNullOrEmpty(valor.ToString()))
+            {
+                MessageBox.Show("No hay cita agendada, error al eliminar");
+            }
+            else
+            {
+                cita = DateTime.Parse(dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value.ToString());
+            }
+
+                int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
             //Variable de nuestra ruta de datos
-           string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+           
             
-            
-            using (OleDbConnection con  = new OleDbConnection(conexion))
+            using (SqlConnection con = new SqlConnection(conexion))
             { 
                 try
                 {
                     con.Open();
                     //Actualizacion de la base de datos
-                    string update = "UPDATE Pacientes SET Proxima_cita = NULL WHERE IdPaciente = ?";
+                    string update = "UPDATE Pacientes SET Proxima_cita = NULL WHERE IdPaciente = @IdPaciente";
                     //Comando para agregar valores y actualizar
-                    OleDbCommand cmd = new OleDbCommand(update, con);
+                    SqlCommand cmd = new SqlCommand(update, con);
                     
-                    cmd.Parameters.AddWithValue("?", idpaciente);
+                    cmd.Parameters.AddWithValue("@IdPaciente", idpaciente);
                    
 
                     cmd.ExecuteNonQuery();    
@@ -176,6 +210,14 @@ namespace Astra
                 }
             }
             CargarPacientes();
+        }
+
+        private void btnExpediente_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            Form6 form6 = new Form6(id);
+           
+            form6.ShowDialog();
         }
     }
 }

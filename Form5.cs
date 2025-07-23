@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace Astra
@@ -15,7 +16,7 @@ namespace Astra
     public partial class Form5 : Form
     {
         Form1 form1 = new Form1();
-        OleDbConnection conn = new OleDbConnection();
+        
         string ruta;
         string conexion;
         public event Action CitaAgregada;
@@ -25,8 +26,8 @@ namespace Astra
         {
             InitializeComponent();
             //Direcciones de la base de datos
-            ruta = @"C:\Users\Angel\Documents\Astra.accdb";
-            conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+            
+            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
             idpacienteseleccionado = IdPaciente;
         }
        
@@ -46,7 +47,7 @@ namespace Astra
             cita.NuevaCita = mcCita.SelectionStart;
             
 
-            using (OleDbConnection con = new OleDbConnection(conexion))
+            using (SqlConnection con = new SqlConnection(conexion))
             {
                 try
                 {
@@ -55,7 +56,7 @@ namespace Astra
 
                     string actualizar = @"UPDATE Pacientes SET Proxima_cita = ? WHERE IdPaciente = ?";
 
-                    OleDbCommand cmd = new OleDbCommand(actualizar, con);
+                    SqlCommand cmd = new SqlCommand(actualizar, con);
                     cmd.Parameters.AddWithValue("?", cita.NuevaCita);
                     cmd.Parameters.AddWithValue("?", idpacienteseleccionado);
                     cmd.ExecuteNonQuery();

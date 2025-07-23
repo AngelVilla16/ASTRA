@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +17,9 @@ namespace Astra
 {
     public partial class Form4 : Form
     {
-        string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Angel\Documents\Astra.accdb;";
         
+        string conexion;
+       
         public event Action PacienteAgregado; // Evento personalizado
 
 
@@ -34,9 +37,9 @@ namespace Astra
         public Form4()
         {
             InitializeComponent();
+
+            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
         }
-
-
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
             //Obtener variables y datos en las variables
@@ -50,7 +53,7 @@ namespace Astra
             paciente.Padecimientos = txtPadecimientos.Text;
 
             //usando la base de datos
-            using (OleDbConnection con = new OleDbConnection(conexion))
+            using (SqlConnection con = new SqlConnection(conexion))
             {
 
                 try
@@ -58,16 +61,17 @@ namespace Astra
                     con.Open();
                     //Orden insertar para usar la palabra reservada INSERT INTO para indicar "Insertar en" tabla Pacientes "valores" 
 
-                    string insertar = @"INSERT INTO Pacientes (Nombre, Apellido, Edad, Altura, Peso, Alergia, Padecimiento) VALUES (?, ?, ?, ?,?,?,?)";
+                    string insertar = @"INSERT INTO Pacientes (Nombre, Apellido, Edad, Altura, Peso, Alergia, Padecimiento) VALUES (@Nombre, @Apellido, @Edad,
+                                        @Altura,@Peso,@Alergia,@Padecimiento)";
 
-                    OleDbCommand cmd = new OleDbCommand(insertar, con);
-                    cmd.Parameters.AddWithValue("?", paciente.Nombre);
-                    cmd.Parameters.AddWithValue("?", paciente.Apellidos);
-                    cmd.Parameters.AddWithValue("?", paciente.Edad);
-                    cmd.Parameters.AddWithValue("?", paciente.Altura);
-                    cmd.Parameters.AddWithValue("?", paciente.Peso);
-                    cmd.Parameters.AddWithValue("?", paciente.Alergias);
-                    cmd.Parameters.AddWithValue("?", paciente.Padecimientos);
+                   SqlCommand cmd = new SqlCommand(insertar,con);
+                    cmd.Parameters.AddWithValue("@Nombre", paciente.Nombre);
+                    cmd.Parameters.AddWithValue("@Apellido", paciente.Apellidos);
+                    cmd.Parameters.AddWithValue("@Edad", paciente.Edad);
+                    cmd.Parameters.AddWithValue("@Altura", paciente.Altura);
+                    cmd.Parameters.AddWithValue("@Peso", paciente.Peso);
+                    cmd.Parameters.AddWithValue("@Alergia", paciente.Alergias);
+                    cmd.Parameters.AddWithValue("@Padecimiento", paciente.Padecimientos);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Paciente registrado correctamente");
                     // Disparar evento para actualizar el otro formulario

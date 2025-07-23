@@ -69,7 +69,7 @@
             this.button2.BackgroundImage = global::Astra.Properties.Resources.Eliminar;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(135, 557);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 92);
@@ -83,12 +83,13 @@
             this.btnExpediente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExpediente.BackgroundImage")));
             this.btnExpediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExpediente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExpediente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExpediente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpediente.Location = new System.Drawing.Point(1147, 557);
             this.btnExpediente.Name = "btnExpediente";
             this.btnExpediente.Size = new System.Drawing.Size(100, 92);
             this.btnExpediente.TabIndex = 7;
             this.btnExpediente.UseVisualStyleBackColor = false;
+            this.btnExpediente.Click += new System.EventHandler(this.btnExpediente_Click);
             // 
             // dgvPacientes
             // 
@@ -108,7 +109,7 @@
             this.btnModificar.BackgroundImage = global::Astra.Properties.Resources.Modificar;
             this.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Location = new System.Drawing.Point(820, 557);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(109, 92);
@@ -121,7 +122,7 @@
             this.btnEliminar.BackgroundImage = global::Astra.Properties.Resources.Borrar;
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Location = new System.Drawing.Point(988, 557);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(111, 92);
@@ -135,7 +136,7 @@
             this.btnAgendar.BackgroundImage = global::Astra.Properties.Resources.Agendar;
             this.btnAgendar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgendar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgendar.Location = new System.Drawing.Point(256, 557);
             this.btnAgendar.Name = "btnAgendar";
             this.btnAgendar.Size = new System.Drawing.Size(96, 92);
@@ -149,7 +150,7 @@
             this.btnAgregarPaciente.BackgroundImage = global::Astra.Properties.Resources.Agregar;
             this.btnAgregarPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregarPaciente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarPaciente.Location = new System.Drawing.Point(21, 557);
             this.btnAgregarPaciente.Name = "btnAgregarPaciente";
             this.btnAgregarPaciente.Size = new System.Drawing.Size(83, 92);

@@ -1,16 +1,17 @@
 ﻿
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.Security.Cryptography;
-
+using Microsoft.Data.SqlClient;
 
 
 
@@ -21,13 +22,15 @@ namespace Astra
     {
         string ruta;
 
-        string conexion = @"Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Users\Angel\Documents\Astra.accdb;";
+        string conexion;
 
 
         public Form2()
         {
             InitializeComponent();
-            ruta = @"C:\Users\Angel\Documents\Astra.accdb";
+
+            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
+
 
         }
 
@@ -41,15 +44,15 @@ namespace Astra
                 MessageBox.Show("Por favor ingrese todos los datos");
                 return;
             }
-
-            using (OleDbConnection con = new OleDbConnection(conexion))
+            
+            using (SqlConnection con = new SqlConnection(conexion ))
             {
                 try
                 {
                     con.Open();
-                    string consulta = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = ?";
-                    OleDbCommand verificar = new OleDbCommand(consulta, con);
-                    verificar.Parameters.AddWithValue("?", usuario);
+                    string consulta = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario";
+                    SqlCommand verificar = new SqlCommand(consulta,con);
+                    verificar.Parameters.AddWithValue("@Usuario", usuario);
                     int existe = (int)verificar.ExecuteScalar();
                     if (existe > 0)
                     {
@@ -58,10 +61,10 @@ namespace Astra
                         return;
                     }
                     //Insertar el nuevo usuario
-                    string insertar = "INSERT INTO usuarios (usuario, contraseña) VALUES (?,?)";
-                    OleDbCommand cmd = new OleDbCommand(insertar, con);
-                    cmd.Parameters.AddWithValue("?", usuario);
-                    cmd.Parameters.AddWithValue("?", contraseña);
+                    string insertar = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES (@Usuario,@Contraseña)";
+                    SqlCommand cmd = new SqlCommand(insertar,con);
+                    cmd.Parameters.AddWithValue("@Usuario", usuario);
+                    cmd.Parameters.AddWithValue("@Contraseña", contraseña);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Usuario registrado con exito");

@@ -71,9 +71,9 @@ namespace Astra
                     cmd.Parameters.AddWithValue("@Altura", paciente.Altura);
                     cmd.Parameters.AddWithValue("@Peso", paciente.Peso);
                     cmd.Parameters.AddWithValue("@Alergia", paciente.Alergias);
-                    cmd.Parameters.AddWithValue("@Padecimiento", paciente.Padecimientos);
+                    cmd.Parameters.AddWithValue("@Padecimiento ", paciente.Padecimientos);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Paciente registrado correctamente");
+                    MessageBox.Show("Paciente registrado correctamente" + MessageBoxButtons.OK);
                     // Disparar evento para actualizar el otro formulario
                     PacienteAgregado?.Invoke();
                     this.Close();

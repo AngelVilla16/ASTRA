@@ -215,6 +215,11 @@ namespace Astra
         private void btnExpediente_Click(object sender, EventArgs e)
         {
             int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            if(id == 0)
+            {
+                MessageBox.Show("Seleccione un paciente para ver su expediente");
+                return;
+            }
             Form6 form6 = new Form6(id);
            
             form6.ShowDialog();

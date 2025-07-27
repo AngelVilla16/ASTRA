@@ -18,7 +18,7 @@ namespace Astra
     public partial class Form4 : Form
     {
         
-        string conexion;
+        string cadena_conexion;
        
         public event Action PacienteAgregado; // Evento personalizado
 
@@ -38,7 +38,13 @@ namespace Astra
         {
             InitializeComponent();
 
-            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
+
+
+            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+
+
         }
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
@@ -53,7 +59,7 @@ namespace Astra
             paciente.Padecimientos = txtPadecimientos.Text;
 
             //usando la base de datos
-            using (SqlConnection con = new SqlConnection(conexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             {
 
                 try

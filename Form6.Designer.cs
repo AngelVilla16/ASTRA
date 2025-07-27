@@ -76,6 +76,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(123, 116);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnConfirmar
             // 
@@ -111,10 +112,10 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form6";
             this.Text = "Form6";
+            this.Load += new System.EventHandler(this.Form6_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.Load += new System.EventHandler(this.Form6_Load);
 
         }
 

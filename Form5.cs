@@ -18,7 +18,7 @@ namespace Astra
         Form1 form1 = new Form1();
         
         string ruta;
-        string conexion;
+        string cadena_conexion;
         public event Action CitaAgregada;
         private int idpacienteseleccionado;
         
@@ -26,8 +26,13 @@ namespace Astra
         {
             InitializeComponent();
             //Direcciones de la base de datos
-            
-            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
+
+
+
+            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+
             idpacienteseleccionado = IdPaciente;
         }
        
@@ -47,20 +52,20 @@ namespace Astra
             cita.NuevaCita = mcCita.SelectionStart;
             
 
-            using (SqlConnection con = new SqlConnection(conexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             {
                 try
                 {
                     con.Open();
                     //Insercion a la base de datos
 
-                    string actualizar = @"UPDATE Pacientes SET Proxima_cita = ? WHERE IdPaciente = ?";
+                    string actualizar = @"UPDATE Pacientes SET Proxima_cita = @Proxima_cita WHERE IdPaciente = @IdPaciente";
 
                     SqlCommand cmd = new SqlCommand(actualizar, con);
-                    cmd.Parameters.AddWithValue("?", cita.NuevaCita);
-                    cmd.Parameters.AddWithValue("?", idpacienteseleccionado);
+                    cmd.Parameters.AddWithValue("@Proxima_cita", cita.NuevaCita);
+                    cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cita seleccionada para la fecha: " + cita.NuevaCita);
+                    MessageBox.Show("Cita seleccionada para la fecha: " + cita.NuevaCita.ToShortDateString());
 
                     CitaAgregada?.Invoke();
                     this.Close();

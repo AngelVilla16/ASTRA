@@ -22,14 +22,17 @@ namespace Astra
     {
         string ruta;
 
-        string conexion;
+        string cadena_conexion;
 
 
         public Form2()
         {
             InitializeComponent();
 
-            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
+
+            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+
 
 
         }
@@ -45,7 +48,7 @@ namespace Astra
                 return;
             }
             
-            using (SqlConnection con = new SqlConnection(conexion ))
+            using (SqlConnection con = new SqlConnection(cadena_conexion ))
             {
                 try
                 {

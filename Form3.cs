@@ -17,13 +17,18 @@ namespace Astra
     {
       
         string ruta;
-        string conexion;
+        string cadena_conexion;
         public Form3()
         {
             InitializeComponent();
             //Direcciones de la base de datos
 
-            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
+
+
+            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+
         }
         //Metodo para cargar pacientes en el datagridview
         private void CargarPacientes()
@@ -32,7 +37,7 @@ namespace Astra
 
             // Conexion y uso de la base de datos
             
-            using (SqlConnection con = new SqlConnection(conexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             {//Probamos la conexion y si se abre la base de datos
                 try
                 {
@@ -106,7 +111,7 @@ namespace Astra
                 (dgvPacientes.SelectedRows[0].Cells["IdPaciente"].Value);
            
 
-            using (SqlConnection conn = new SqlConnection(conexion))
+            using (SqlConnection conn = new SqlConnection(cadena_conexion))
             {
                 try
                 {
@@ -188,7 +193,7 @@ namespace Astra
             //Variable de nuestra ruta de datos
            
             
-            using (SqlConnection con = new SqlConnection(conexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             { 
                 try
                 {

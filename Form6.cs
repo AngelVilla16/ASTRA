@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.IO;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 
 namespace Astra
 {
     public partial class Form6 : Form
     {
-        string conexion;
+        string cadena_conexion;
         public Action pacienteAgregadoi;
         private int idpacienteseleccionado;
         private bool expedienteExiste = false;
@@ -15,12 +16,19 @@ namespace Astra
         {
             InitializeComponent();
             idpacienteseleccionado = IdPaciente;
-            conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
+
+
+
+            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+
+
         }
 
         private void CargarExpediente()
         {
-            using (SqlConnection con = new SqlConnection(conexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             {
                 try
                 {
@@ -63,7 +71,7 @@ namespace Astra
                 return;
             }
 
-            using (SqlConnection con = new SqlConnection(conexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             {
                 try
                 {
@@ -96,6 +104,11 @@ namespace Astra
                     MessageBox.Show("Error al guardar el expediente: " + ex.Message);
                 }
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

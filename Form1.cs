@@ -20,10 +20,16 @@ namespace Astra
         {
 
             InitializeComponent();
-           
+
             //Cadena de conexion para sqlite
-             cadena_conexion = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AstraDB;Integrated Security=True";
-            
+
+
+            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+
+
+
+
         }
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {

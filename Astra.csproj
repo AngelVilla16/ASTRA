@@ -35,7 +35,7 @@
     <PublisherName>Astrosoft</PublisherName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -462,6 +462,14 @@
     <Content Include="Data\AstraDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Password icon.png" />
+    <None Include="Resources\Usuario icon.png" />
+    <None Include="Resources\Cerrar.png" />
+    <None Include="Resources\Maximizar.png" />
+    <None Include="Resources\Minimizar.png" />
+    <None Include="Resources\icono sin fondo.png" />
+    <None Include="Resources\Fondo 2.png" />
+    <None Include="Resources\astra logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

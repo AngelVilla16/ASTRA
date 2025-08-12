@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.Expediente = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Minimizar = new System.Windows.Forms.Button();
+            this.Maximizar = new System.Windows.Forms.Button();
+            this.Cerrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -41,15 +47,15 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.fondo_1_;
+            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnConfirmar);
             this.groupBox1.Controls.Add(this.Expediente);
-            this.groupBox1.Location = new System.Drawing.Point(1, 3);
+            this.groupBox1.Location = new System.Drawing.Point(0, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1281, 729);
+            this.groupBox1.Size = new System.Drawing.Size(1281, 679);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -104,17 +110,75 @@
             this.Expediente.TabIndex = 1;
             this.Expediente.Text = "";
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
+            this.panel1.Controls.Add(this.Cerrar);
+            this.panel1.Controls.Add(this.Maximizar);
+            this.panel1.Controls.Add(this.Minimizar);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1292, 28);
+            this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+
+            // 
+            // Minimizar
+            // 
+            this.Minimizar.BackColor = System.Drawing.Color.Transparent;
+            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
+            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimizar.Location = new System.Drawing.Point(1160, 5);
+            this.Minimizar.Name = "Minimizar";
+            this.Minimizar.Size = new System.Drawing.Size(36, 23);
+            this.Minimizar.TabIndex = 0;
+            this.Minimizar.UseVisualStyleBackColor = false;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
+            // 
+            // Maximizar
+            // 
+            this.Maximizar.BackColor = System.Drawing.Color.Transparent;
+            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
+            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Maximizar.Location = new System.Drawing.Point(1202, 5);
+            this.Maximizar.Name = "Maximizar";
+            this.Maximizar.Size = new System.Drawing.Size(34, 23);
+            this.Maximizar.TabIndex = 1;
+            this.Maximizar.UseVisualStyleBackColor = false;
+            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
+            // 
+            // Cerrar
+            // 
+            this.Cerrar.BackColor = System.Drawing.Color.Transparent;
+            this.Cerrar.BackgroundImage = global::Astra.Properties.Resources.Cerrar;
+            this.Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cerrar.Location = new System.Drawing.Point(1242, 5);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(33, 23);
+            this.Cerrar.TabIndex = 2;
+            this.Cerrar.UseVisualStyleBackColor = false;
+            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 729);
+            this.ClientSize = new System.Drawing.Size(1284, 701);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form6";
-            this.Text = "Form6";
+            this.Text = "Expediente del paciente";
             this.Load += new System.EventHandler(this.Form6_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -126,5 +190,9 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Cerrar;
+        private System.Windows.Forms.Button Maximizar;
+        private System.Windows.Forms.Button Minimizar;
     }
 }

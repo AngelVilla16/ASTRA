@@ -77,5 +77,42 @@ namespace Astra
                 }
             }
         }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = this.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
+        }
+
+        private void Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private bool arrastrar = false;
+        private Point puntoInicio;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                arrastrar = true;
+                puntoInicio = new Point(e.X, e.Y);
+            }
+        }
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (arrastrar)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - puntoInicio.X, p.Y - puntoInicio.Y);
+            }
+        }
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            arrastrar = false;
+        }
     }
 }

@@ -37,8 +37,13 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgendar = new System.Windows.Forms.Button();
             this.btnAgregarPaciente = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.Maximizar = new System.Windows.Forms.Button();
+            this.Minimizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -47,7 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.fondo_1_;
+            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.btnExpediente);
@@ -59,7 +64,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1539, 726);
+            this.groupBox1.Size = new System.Drawing.Size(1539, 698);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -96,11 +101,12 @@
             this.dgvPacientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPacientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientes.Location = new System.Drawing.Point(0, 0);
+            this.dgvPacientes.Location = new System.Drawing.Point(0, 35);
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.RowHeadersWidth = 123;
-            this.dgvPacientes.Size = new System.Drawing.Size(1283, 523);
+            this.dgvPacientes.Size = new System.Drawing.Size(1283, 488);
             this.dgvPacientes.TabIndex = 6;
             // 
             // btnModificar
@@ -159,17 +165,71 @@
             this.btnAgregarPaciente.UseVisualStyleBackColor = false;
             this.btnAgregarPaciente.Click += new System.EventHandler(this.btnAgregarPaciente_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.Maximizar);
+            this.panel1.Controls.Add(this.Minimizar);
+            this.panel1.Location = new System.Drawing.Point(3, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1283, 29);
+            this.panel1.TabIndex = 11;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::Astra.Properties.Resources.Cerrar;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(1233, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(36, 23);
+            this.button4.TabIndex = 2;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // Maximizar
+            // 
+            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
+            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Maximizar.Location = new System.Drawing.Point(1181, 3);
+            this.Maximizar.Name = "Maximizar";
+            this.Maximizar.Size = new System.Drawing.Size(33, 23);
+            this.Maximizar.TabIndex = 1;
+            this.Maximizar.UseVisualStyleBackColor = true;
+            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
+            // 
+            // Minimizar
+            // 
+            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
+            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimizar.Location = new System.Drawing.Point(1124, 3);
+            this.Minimizar.Name = "Minimizar";
+            this.Minimizar.Size = new System.Drawing.Size(38, 23);
+            this.Minimizar.TabIndex = 0;
+            this.Minimizar.UseVisualStyleBackColor = true;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
+            // 
             // Form3
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1284, 729);
+            this.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
+            this.ClientSize = new System.Drawing.Size(1284, 701);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,5 +244,9 @@
         private System.Windows.Forms.Button btnExpediente;
         public System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Maximizar;
+        private System.Windows.Forms.Button Minimizar;
     }
 }

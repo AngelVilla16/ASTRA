@@ -51,7 +51,7 @@ namespace Astra
                     // 1. Uso de parámetros nombrados (@usuario, @contraseña) - MUY RECOMENDADO
                     string consulta = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
 
-                    // Corrección: SqliteCommand -> SQLiteCommand
+                    
                     using (SqlCommand comando = new SqlCommand(consulta, con))
                     {
                         // 2. Añadir parámetros por nombre, esto es más robusto y claro.
@@ -101,6 +101,7 @@ namespace Astra
         {
             Form2 form2 = new Form2();
             form2.Show();
+            this.Hide();
 
         }
 
@@ -109,6 +110,43 @@ namespace Astra
             txtUsuario.Clear();
             txtContraseña.Clear();
 
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private bool arrastrar = false;
+        private Point puntoInicio;
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                arrastrar = true;
+                puntoInicio = new Point(e.X, e.Y);
+            }
+        }
+        private void panel3_MouseMove(object sender, MouseEventArgs e)
+        {
+          if(arrastrar)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - puntoInicio.X, p.Y - puntoInicio.Y);
+            }
+        }
+        private void panel3_MouseUp(object sender, MouseEventArgs e)
+        {
+           arrastrar = false;
         }
     }
 

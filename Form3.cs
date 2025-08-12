@@ -33,50 +33,98 @@ namespace Astra
         //Metodo para cargar pacientes en el datagridview
         private void CargarPacientes()
         {
-            //La base de datos conexion apunta al archivo local de la base de datos de sqlclient
+            // Aseguramos que la conexión permita múltiples lectores
+            string cadenaConexion = cadena_conexion + ";MultipleActiveResultSets=True";
 
-            // Conexion y uso de la base de datos
-            
-            using (SqlConnection con = new SqlConnection(cadena_conexion))
-            {//Probamos la conexion y si se abre la base de datos
+            using (SqlConnection con = new SqlConnection(cadenaConexion))
+            {
                 try
                 {
                     con.Open();
-                    //Seleccionamos los pacientes y creamos un adaptador
-                    //El adaptador al momento de creear una tabla lo que hace es rellenar esta tabla con los datos actualizados del datagrid
-                    string consulta = "SELECT * FROM Pacientes";
 
-                    // --- INICIO DE LA CORRECCIÓN SOLICITADA ---
-                    // Cambiado: SqliteDataReader (no se instancia directamente)
-                    // Cambiado: adaptador.Fill(tabla) (no existe, se usa tabla.Load(reader))
-
-                    // Creamos un comando SQLite para ejecutar la consulta
-                    using (SqlCommand comando = new SqlCommand(consulta, con))
+                    // 1. Cargar todos los pacientes
+                    string consultaPacientes = "SELECT IdPaciente, Nombre, Apellido, Edad, Altura, Peso FROM Pacientes";
+                    DataTable tablaPacientes = new DataTable();
+                    using (SqlDataAdapter adaptador = new SqlDataAdapter(consultaPacientes, con))
                     {
-                        // Ejecutamos el comando y obtenemos un lector de datos
-                        using (SqlDataReader reader = comando.ExecuteReader())
+                        adaptador.Fill(tablaPacientes);
+                    }
+
+                    // 2. Crear columnas extra en memoria
+                    if (!tablaPacientes.Columns.Contains("Alergias"))
+                        tablaPacientes.Columns.Add("Alergias", typeof(string));
+                    if (!tablaPacientes.Columns.Contains("Padecimientos"))
+                        tablaPacientes.Columns.Add("Padecimientos", typeof(string));
+                    if(!tablaPacientes.Columns.Contains("Proxima_cita"))
+                        tablaPacientes.Columns.Add("Proxima_cita", typeof(DateTime));
+
+                    // 3. Recorrer pacientes y obtener datos relacionados
+                    foreach (DataRow fila in tablaPacientes.Rows)
+                    {
+                        int idPaciente = Convert.ToInt32(fila["IdPaciente"]);
+
+                        // Obtener alergias
+                        List<string> listaAlergias = new List<string>();
+                        using (SqlCommand cmdAlergias = new SqlCommand(
+                            "SELECT Alergia FROM Alergias WHERE IdPaciente = @IdPaciente", con))
                         {
-                            DataTable tabla = new DataTable();
-                            // Llenamos el DataTable con los datos del lector
-                            tabla.Load(reader); // Esta es la función equivalente a 'Fill' para DataTable con un DataReader
+                            cmdAlergias.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                            using (SqlDataReader dr = cmdAlergias.ExecuteReader())
+                            {
+                                while (dr.Read())
+                                {
+                                    listaAlergias.Add(dr["Alergia"].ToString());
+                                }
+                            }
+                        }
+                        fila["Alergias"] = string.Join(", ", listaAlergias);
 
-                            dgvPacientes.DataSource = tabla;
-                        } // El DataReader se cerrará automáticamente aquí
-                    } // El comando se liberará automáticamente aquí
-                      // --- FIN DE LA CORRECCIÓN SOLICITADA ---
+                        // Obtener padecimientos
+                        List<string> listaPadecimientos = new List<string>();
+                        using (SqlCommand cmdPadecimientos = new SqlCommand(
+                            "SELECT Padecimiento FROM Padecimientos WHERE IdPaciente = @IdPaciente", con))
+                        {
+                            cmdPadecimientos.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                            using (SqlDataReader dr = cmdPadecimientos.ExecuteReader())
+                            {
+                                while (dr.Read())
+                                {
+                                    listaPadecimientos.Add(dr["Padecimiento"].ToString());
+                                }
+                            }
+                        }
+                        fila["Padecimientos"] = string.Join(", ", listaPadecimientos);
+                        // Obtener proxima cita
+                        using (SqlCommand cmdCita = new SqlCommand(
+                            "SELECT Proxima_cita FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
+                        {
+                            cmdCita.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                            object cita = cmdCita.ExecuteScalar();
+                            if (cita != null && cita != DBNull.Value)
+                            {
+                                fila["Proxima_cita"] = Convert.ToDateTime(cita);
+                            }
+                            else
+                            {
+                                fila["Proxima_cita"] = DBNull.Value; // Si no hay cita, dejamos el valor como nulo
+                            }
+                        }
+                    }
 
+                    // 4. Mostrar en el DataGridView
+                    dgvPacientes.DataSource = tablaPacientes;
                 }
-                catch (SqlException ex) // Cambiado: Exception -> SQLiteException para manejo más específico
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Error al cargar pacientes: " + ex.Message); // Mensaje mejorado
+                    MessageBox.Show("Error de base de datos: " + ex.Message);
                 }
-                catch (Exception ex) // Para capturar cualquier otro tipo de excepción no relacionada con SQLite
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error inesperado al cargar pacientes: " + ex.Message);
+                    MessageBox.Show("Error inesperado: " + ex.Message);
                 }
-
-            } // La conexión se cerrará automáticamente aquí gracias al 'using'
+            }
         }
+
         //Al momento de abrir el formulario se manda a llamar al metodo de carga pacientes
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -116,10 +164,24 @@ namespace Astra
                 try
                 {
                     conn.Open();
-                    string eliminar = "DELETE FROM Pacientes WHERE IdPaciente = @IdPaciente";
-                    SqlCommand cmd = new SqlCommand(eliminar,conn);
+                    //Al usar claves foraneas el orden de eliminacion es importante
+                    string eliminarPadecimientos = "DELETE FROM Padecimientos WHERE IdPaciente = @IdPaciente";
+                    SqlCommand cmdPadecimientos = new SqlCommand(eliminarPadecimientos, conn);
+                    cmdPadecimientos.Parameters.AddWithValue("@IdPaciente", idpaciente);
+                    cmdPadecimientos.ExecuteNonQuery();
+
+                    string eliminarAlergias = "DELETE FROM Alergias WHERE IdPaciente = @IdPaciente";
+                    SqlCommand cmdAlergias = new SqlCommand(eliminarAlergias, conn);
+                    cmdAlergias.Parameters.AddWithValue("@IdPaciente", idpaciente);
+                    cmdAlergias.ExecuteNonQuery();
+
+                    string eliminarPaciente = "DELETE FROM Pacientes WHERE IdPaciente = @IdPaciente";
+                    SqlCommand cmd = new SqlCommand(eliminarPaciente, conn);
                     cmd.Parameters.AddWithValue("@IdPaciente", idpaciente);
                     cmd.ExecuteNonQuery();
+                   
+
+                  
                     MessageBox.Show("Paciente eliminado correctamente");
 
 
@@ -175,7 +237,7 @@ namespace Astra
         //Eliminar cita
         private void btnEliminar_Click(object sender, EventArgs e)
         {//Variables para obtener los valores de las celdas de acuerdo a su tipo de dato: Fecha y numerico
-            DateTime cita;
+           
 
              
             object valor = dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value;
@@ -183,13 +245,13 @@ namespace Astra
             if (string.IsNullOrEmpty(valor.ToString()))
             {
                 MessageBox.Show("No hay cita agendada, error al eliminar");
+                return;
             }
-            else
-            {
-                cita = DateTime.Parse(dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value.ToString());
-            }
-
-                int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            
+            DialogResult confirmacion = MessageBox.Show("¿Esta seguro de que desea eliminar la cita del paciente?", "Confirmar eliminacion ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmacion == DialogResult.No)
+                return;
+            int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
             //Variable de nuestra ruta de datos
            
             
@@ -206,8 +268,8 @@ namespace Astra
                     cmd.Parameters.AddWithValue("@IdPaciente", idpaciente);
                    
 
-                    cmd.ExecuteNonQuery();    
-
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cita eliminada correctamente " );
                 }
                 catch (Exception ex)
                 {
@@ -228,6 +290,43 @@ namespace Astra
             Form6 form6 = new Form6(id);
            
             form6.ShowDialog();
+        }
+
+        private void Minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Maximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private bool arrastrar = false;
+        private Point puntoInicio;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                arrastrar = true;
+                puntoInicio = new Point(e.X, e.Y);
+            }
+        }
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (arrastrar)
+            {
+                Point p = PointToScreen(e.Location);
+                this.Location = new Point(p.X - puntoInicio.X, p.Y - puntoInicio.Y);
+            }
+        }
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            arrastrar = false;
         }
     }
 }

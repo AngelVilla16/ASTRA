@@ -30,18 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Cerrar = new System.Windows.Forms.Button();
+            this.Maximizar = new System.Windows.Forms.Button();
+            this.Minimizar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel31 = new System.Windows.Forms.Panel();
             this.txtRegistroContraseña = new System.Windows.Forms.TextBox();
             this.txtRegistroUsuario = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.fondo_1_;
+            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.panel5);
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.txtRegistroContraseña);
             this.groupBox1.Controls.Add(this.txtRegistroUsuario);
             this.groupBox1.Controls.Add(this.btnRegistrar);
@@ -49,15 +64,117 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(-6, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(438, 309);
+            this.groupBox1.Size = new System.Drawing.Size(894, 447);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackgroundImage = global::Astra.Properties.Resources.Password_icon;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(530, 139);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(60, 47);
+            this.panel5.TabIndex = 8;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.BackgroundImage = global::Astra.Properties.Resources.Usuario_icon;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(530, 39);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(60, 52);
+            this.panel4.TabIndex = 7;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.Cerrar);
+            this.panel3.Controls.Add(this.Maximizar);
+            this.panel3.Controls.Add(this.Minimizar);
+            this.panel3.Location = new System.Drawing.Point(7, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(887, 33);
+            this.panel3.TabIndex = 6;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
+            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
+            // 
+            // Cerrar
+            // 
+            this.Cerrar.BackgroundImage = global::Astra.Properties.Resources.Cerrar;
+            this.Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cerrar.Location = new System.Drawing.Point(850, 10);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(34, 23);
+            this.Cerrar.TabIndex = 2;
+            this.Cerrar.UseVisualStyleBackColor = true;
+            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
+            // 
+            // Maximizar
+            // 
+            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
+            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Maximizar.Location = new System.Drawing.Point(806, 10);
+            this.Maximizar.Name = "Maximizar";
+            this.Maximizar.Size = new System.Drawing.Size(38, 23);
+            this.Maximizar.TabIndex = 1;
+            this.Maximizar.UseVisualStyleBackColor = true;
+            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
+            // 
+            // Minimizar
+            // 
+            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
+            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimizar.Location = new System.Drawing.Point(764, 10);
+            this.Minimizar.Name = "Minimizar";
+            this.Minimizar.Size = new System.Drawing.Size(36, 23);
+            this.Minimizar.TabIndex = 0;
+            this.Minimizar.UseVisualStyleBackColor = true;
+            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.panel31);
+            this.panel1.Location = new System.Drawing.Point(6, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(491, 392);
+            this.panel1.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(12, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(468, 43);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "ASTRA Gestor de citas médicas";
+            // 
+            // panel31
+            // 
+            this.panel31.BackgroundImage = global::Astra.Properties.Resources.icono_sin_fondo;
+            this.panel31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel31.Location = new System.Drawing.Point(145, 113);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(178, 165);
+            this.panel31.TabIndex = 0;
             // 
             // txtRegistroContraseña
             // 
             this.txtRegistroContraseña.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtRegistroContraseña.BackColor = System.Drawing.SystemColors.MenuText;
             this.txtRegistroContraseña.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegistroContraseña.Location = new System.Drawing.Point(108, 190);
+            this.txtRegistroContraseña.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtRegistroContraseña.Location = new System.Drawing.Point(629, 182);
             this.txtRegistroContraseña.Name = "txtRegistroContraseña";
             this.txtRegistroContraseña.PasswordChar = '*';
             this.txtRegistroContraseña.Size = new System.Drawing.Size(179, 29);
@@ -66,8 +183,10 @@
             // txtRegistroUsuario
             // 
             this.txtRegistroUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtRegistroUsuario.BackColor = System.Drawing.SystemColors.MenuText;
             this.txtRegistroUsuario.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegistroUsuario.Location = new System.Drawing.Point(108, 83);
+            this.txtRegistroUsuario.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtRegistroUsuario.Location = new System.Drawing.Point(629, 61);
             this.txtRegistroUsuario.Name = "txtRegistroUsuario";
             this.txtRegistroUsuario.Size = new System.Drawing.Size(179, 29);
             this.txtRegistroUsuario.TabIndex = 3;
@@ -76,7 +195,7 @@
             // 
             this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRegistrar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(127, 250);
+            this.btnRegistrar.Location = new System.Drawing.Point(607, 236);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(131, 30);
             this.btnRegistrar.TabIndex = 2;
@@ -91,7 +210,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(151, 148);
+            this.label2.Location = new System.Drawing.Point(526, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 22);
             this.label2.TabIndex = 1;
@@ -104,7 +223,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(174, 40);
+            this.label1.Location = new System.Drawing.Point(526, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 22);
             this.label1.TabIndex = 0;
@@ -113,13 +232,18 @@
             // Form2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(434, 311);
+            this.ClientSize = new System.Drawing.Size(886, 443);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +256,14 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button Cerrar;
+        private System.Windows.Forms.Button Maximizar;
+        private System.Windows.Forms.Button Minimizar;
     }
 }

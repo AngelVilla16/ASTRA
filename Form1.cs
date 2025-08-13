@@ -98,10 +98,12 @@ namespace Astra
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        {   
+            txtUsuario.Clear();
+            txtContraseña.Clear();
             Form2 form2 = new Form2();
             form2.Show();
-            this.Hide();
+            
 
         }
 

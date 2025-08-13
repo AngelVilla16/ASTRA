@@ -280,8 +280,17 @@ namespace Astra
         }
 
         private void btnExpediente_Click(object sender, EventArgs e)
-        {
-            int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+        { int id = 0;
+            
+            if (dgvPacientes.SelectedRows.Count > 0)
+            {
+                id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            }
+            else
+            {
+                MessageBox.Show("No existe ningun paciente " + MessageBoxIcon.Error);
+            }
+
             if(id == 0)
             {
                 MessageBox.Show("Seleccione un paciente para ver su expediente");

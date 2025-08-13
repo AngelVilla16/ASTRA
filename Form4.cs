@@ -50,14 +50,23 @@ namespace Astra
         {
             //Obtener variables y datos en los atributos de la clase Paciente
             Paciente paciente = new Paciente();
-            paciente.Nombre = txtNombre.Text;
-            paciente.Apellidos = txtApellidos.Text;
-            paciente.Edad = int.Parse(txtEdad.Text);
-            paciente.Altura = double.Parse(txtAltura.Text);
-            paciente.Peso = double.Parse(txtPeso.Text);
-            paciente.Alergia = txtAlergias.Text;
-            paciente.Padecimiento = txtPadecimientos.Text;
-          
+            try
+            {
+               
+                paciente.Nombre = txtNombre.Text;
+                paciente.Apellidos = txtApellidos.Text;
+                paciente.Edad = int.Parse(txtEdad.Text);
+                paciente.Altura = double.Parse(txtAltura.Text);
+                paciente.Peso = double.Parse(txtPeso.Text);
+                paciente.Alergia = txtAlergias.Text;
+                paciente.Padecimiento = txtPadecimientos.Text;
+
+            }
+            catch
+            {
+                MessageBox.Show("Por favor, complete todos los campos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Salir del método si hay un error
+            }
 
             //usando la base de datos
             using (SqlConnection con = new SqlConnection(cadena_conexion))

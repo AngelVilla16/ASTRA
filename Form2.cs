@@ -72,8 +72,7 @@ namespace Astra
 
                     MessageBox.Show("Usuario registrado con exito");
                     this.Close();
-                    Form1 form1 = new Form1();
-                    form1.Show();
+                    
                 }
                 catch (Exception ex)
                 {

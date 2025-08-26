@@ -143,6 +143,16 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Confirmar_pacietne {
+            get {
+                object obj = ResourceManager.GetObject("Confirmar pacietne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap confuirmarcita {
             get {
                 object obj = ResourceManager.GetObject("confuirmarcita", resourceCulture);
@@ -256,6 +266,16 @@ namespace Astra.Properties {
         internal static System.Drawing.Bitmap Modificar {
             get {
                 object obj = ResourceManager.GetObject("Modificar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Modificar1 {
+            get {
+                object obj = ResourceManager.GetObject("Modificar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

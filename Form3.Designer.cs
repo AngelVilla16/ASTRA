@@ -30,24 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnExpediente = new System.Windows.Forms.Button();
-            this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgendar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnAgregarPaciente = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgendar = new System.Windows.Forms.Button();
+            this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.Maximizar = new System.Windows.Forms.Button();
             this.Minimizar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -56,31 +59,51 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.txtBusqueda);
             this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.dgvPacientes);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1539, 698);
+            this.groupBox1.Size = new System.Drawing.Size(1280, 695);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // button2
+            // btnBuscar
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = global::Astra.Properties.Resources.Eliminar;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(116, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 92);
-            this.button2.TabIndex = 10;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnBuscar.BackColor = System.Drawing.Color.Black;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBuscar.Location = new System.Drawing.Point(509, 618);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(137, 33);
+            this.btnBuscar.TabIndex = 15;
+            this.btnBuscar.Text = "Buscar paciente";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(509, 569);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(137, 26);
+            this.txtBusqueda.TabIndex = 14;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel3.Controls.Add(this.btnExpediente);
+            this.panel3.Controls.Add(this.btnEliminar);
+            this.panel3.Controls.Add(this.btnModificar);
+            this.panel3.Location = new System.Drawing.Point(697, 529);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(496, 166);
+            this.panel3.TabIndex = 12;
             // 
             // btnExpediente
             // 
@@ -96,18 +119,18 @@
             this.btnExpediente.UseVisualStyleBackColor = false;
             this.btnExpediente.Click += new System.EventHandler(this.btnExpediente_Click);
             // 
-            // dgvPacientes
+            // btnEliminar
             // 
-            this.dgvPacientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPacientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientes.Location = new System.Drawing.Point(0, 35);
-            this.dgvPacientes.Name = "dgvPacientes";
-            this.dgvPacientes.RowHeadersWidth = 123;
-            this.dgvPacientes.Size = new System.Drawing.Size(1283, 488);
-            this.dgvPacientes.TabIndex = 6;
+            this.btnEliminar.BackgroundImage = global::Astra.Properties.Resources.Borrar;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Location = new System.Drawing.Point(213, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(111, 92);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -123,32 +146,30 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnEliminar
+            // panel2
             // 
-            this.btnEliminar.BackgroundImage = global::Astra.Properties.Resources.Borrar;
-            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(213, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(111, 92);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnAgregarPaciente);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnAgendar);
+            this.panel2.Location = new System.Drawing.Point(0, 528);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(503, 163);
+            this.panel2.TabIndex = 11;
             // 
-            // btnAgendar
+            // button1
             // 
-            this.btnAgendar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgendar.BackgroundImage = global::Astra.Properties.Resources.Agendar;
-            this.btnAgendar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgendar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgendar.Location = new System.Drawing.Point(254, 3);
-            this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(96, 92);
-            this.btnAgendar.TabIndex = 2;
-            this.btnAgendar.UseVisualStyleBackColor = false;
-            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
+            this.button1.BackgroundImage = global::Astra.Properties.Resources.Modificar1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(226, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 92);
+            this.button1.TabIndex = 11;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAgregarPaciente
             // 
@@ -157,13 +178,54 @@
             this.btnAgregarPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregarPaciente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarPaciente.Location = new System.Drawing.Point(6, 0);
+            this.btnAgregarPaciente.Location = new System.Drawing.Point(9, 0);
             this.btnAgregarPaciente.Name = "btnAgregarPaciente";
             this.btnAgregarPaciente.Size = new System.Drawing.Size(83, 92);
             this.btnAgregarPaciente.TabIndex = 1;
             this.btnAgregarPaciente.Text = "\r\n";
             this.btnAgregarPaciente.UseVisualStyleBackColor = false;
             this.btnAgregarPaciente.Click += new System.EventHandler(this.btnAgregarPaciente_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = global::Astra.Properties.Resources.Eliminar;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(116, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(88, 92);
+            this.button2.TabIndex = 10;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnAgendar
+            // 
+            this.btnAgendar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgendar.BackgroundImage = global::Astra.Properties.Resources.Agendar;
+            this.btnAgendar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgendar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgendar.Location = new System.Drawing.Point(353, 6);
+            this.btnAgendar.Name = "btnAgendar";
+            this.btnAgendar.Size = new System.Drawing.Size(96, 92);
+            this.btnAgendar.TabIndex = 2;
+            this.btnAgendar.UseVisualStyleBackColor = false;
+            this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
+            // 
+            // dgvPacientes
+            // 
+            this.dgvPacientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPacientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientes.Location = new System.Drawing.Point(6, 35);
+            this.dgvPacientes.Name = "dgvPacientes";
+            this.dgvPacientes.RowHeadersWidth = 123;
+            this.dgvPacientes.Size = new System.Drawing.Size(1268, 488);
+            this.dgvPacientes.TabIndex = 6;
             // 
             // panel1
             // 
@@ -216,32 +278,11 @@
             this.Minimizar.UseVisualStyleBackColor = true;
             this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel2.Controls.Add(this.btnAgregarPaciente);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.btnAgendar);
-            this.panel2.Location = new System.Drawing.Point(0, 529);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(419, 163);
-            this.panel2.TabIndex = 11;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel3.Controls.Add(this.btnExpediente);
-            this.panel3.Controls.Add(this.btnEliminar);
-            this.panel3.Controls.Add(this.btnModificar);
-            this.panel3.Location = new System.Drawing.Point(773, 532);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(496, 166);
-            this.panel3.TabIndex = 12;
-            // 
             // Form3
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1284, 701);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
@@ -251,10 +292,11 @@
             this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,5 +317,8 @@
         private System.Windows.Forms.Button Minimizar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtBusqueda;
+        private System.Windows.Forms.Button button1;
     }
 }

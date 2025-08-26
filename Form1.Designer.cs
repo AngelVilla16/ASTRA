@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Salir = new System.Windows.Forms.Button();
-            this.Maximizar = new System.Windows.Forms.Button();
-            this.Minimizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,8 +45,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -60,6 +59,7 @@
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel3);
@@ -78,12 +78,30 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackgroundImage = global::Astra.Properties.Resources.Usuario_icon;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(548, 48);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(60, 43);
+            this.panel5.TabIndex = 10;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.BackgroundImage = global::Astra.Properties.Resources.Password_icon;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(548, 119);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(60, 43);
+            this.panel4.TabIndex = 9;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.Salir);
-            this.panel3.Controls.Add(this.Maximizar);
-            this.panel3.Controls.Add(this.Minimizar);
             this.panel3.Location = new System.Drawing.Point(7, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(893, 32);
@@ -103,32 +121,6 @@
             this.Salir.TabIndex = 2;
             this.Salir.UseVisualStyleBackColor = true;
             this.Salir.Click += new System.EventHandler(this.Salir_Click);
-            // 
-            // Maximizar
-            // 
-            this.Maximizar.BackColor = System.Drawing.Color.Transparent;
-            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
-            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximizar.Location = new System.Drawing.Point(816, 9);
-            this.Maximizar.Name = "Maximizar";
-            this.Maximizar.Size = new System.Drawing.Size(34, 23);
-            this.Maximizar.TabIndex = 1;
-            this.Maximizar.UseVisualStyleBackColor = false;
-            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
-            // 
-            // Minimizar
-            // 
-            this.Minimizar.BackColor = System.Drawing.Color.Transparent;
-            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
-            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimizar.Location = new System.Drawing.Point(779, 9);
-            this.Minimizar.Name = "Minimizar";
-            this.Minimizar.Size = new System.Drawing.Size(34, 23);
-            this.Minimizar.TabIndex = 0;
-            this.Minimizar.UseVisualStyleBackColor = false;
-            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
             // 
             // panel1
             // 
@@ -259,25 +251,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
-            // panel4
+            // checkBox1
             // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.BackgroundImage = global::Astra.Properties.Resources.Password_icon;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Location = new System.Drawing.Point(548, 119);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(60, 43);
-            this.panel4.TabIndex = 9;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.BackgroundImage = global::Astra.Properties.Resources.Usuario_icon;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(548, 48);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(60, 43);
-            this.panel5.TabIndex = 10;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBox1.Location = new System.Drawing.Point(651, 186);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(117, 17);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Mostrar contraseña";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Form1
             // 
@@ -317,10 +302,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button Salir;
-        private System.Windows.Forms.Button Maximizar;
-        private System.Windows.Forms.Button Minimizar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

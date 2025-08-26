@@ -82,17 +82,9 @@ namespace Astra
         }
         private void Cerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
-        private void Maximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void Minimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        
         private bool arrastrar = false;
         private Point puntoInicio;
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -116,6 +108,21 @@ namespace Astra
             arrastrar = false;
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                txtRegistroContraseña.PasswordChar = '\0';
+            }
+            else
+            {
+                txtRegistroContraseña.PasswordChar= '*';
+            }
+        }
     }
 }

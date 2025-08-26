@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Cerrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,13 +47,34 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Minimizar = new System.Windows.Forms.Button();
-            this.Cerrar = new System.Windows.Forms.Button();
-            this.Maximizar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
+            this.panel1.Controls.Add(this.Cerrar);
+            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(485, 27);
+            this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // Cerrar
+            // 
+            this.Cerrar.BackgroundImage = global::Astra.Properties.Resources.Cerrar;
+            this.Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cerrar.Location = new System.Drawing.Point(444, 4);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(36, 23);
+            this.Cerrar.TabIndex = 1;
+            this.Cerrar.UseVisualStyleBackColor = true;
+            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
             // 
             // groupBox1
             // 
@@ -96,16 +119,16 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(66, 151);
+            this.label7.Location = new System.Drawing.Point(41, 151);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 22);
+            this.label7.Size = new System.Drawing.Size(114, 22);
             this.label7.TabIndex = 26;
-            this.label7.Text = "Altura";
+            this.label7.Text = "Altura (Metros)";
             // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregar.BackgroundImage = global::Astra.Properties.Resources.Confirmar_paciente__1_;
+            this.btnAgregar.BackgroundImage = global::Astra.Properties.Resources.Confirmar_pacietne;
             this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -244,9 +267,9 @@
             this.label2.Location = new System.Drawing.Point(233, 47);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 22);
+            this.label2.Size = new System.Drawing.Size(66, 22);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Apellidos";
+            this.label2.Text = "Apellido";
             // 
             // label4
             // 
@@ -254,63 +277,12 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(226, 151);
+            this.label4.Location = new System.Drawing.Point(201, 151);
             this.label4.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 22);
+            this.label4.Size = new System.Drawing.Size(132, 22);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Peso";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
-            this.panel1.Controls.Add(this.Minimizar);
-            this.panel1.Controls.Add(this.Cerrar);
-            this.panel1.Controls.Add(this.Maximizar);
-            this.panel1.Location = new System.Drawing.Point(0, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(485, 27);
-            this.panel1.TabIndex = 1;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            // 
-            // Minimizar
-            // 
-            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
-            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimizar.Location = new System.Drawing.Point(358, 3);
-            this.Minimizar.Name = "Minimizar";
-            this.Minimizar.Size = new System.Drawing.Size(37, 23);
-            this.Minimizar.TabIndex = 2;
-            this.Minimizar.UseVisualStyleBackColor = true;
-            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
-            // 
-            // Cerrar
-            // 
-            this.Cerrar.BackgroundImage = global::Astra.Properties.Resources.Cerrar;
-            this.Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cerrar.Location = new System.Drawing.Point(444, 4);
-            this.Cerrar.Name = "Cerrar";
-            this.Cerrar.Size = new System.Drawing.Size(36, 23);
-            this.Cerrar.TabIndex = 1;
-            this.Cerrar.UseVisualStyleBackColor = true;
-            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
-            // 
-            // Maximizar
-            // 
-            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
-            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximizar.Location = new System.Drawing.Point(401, 4);
-            this.Maximizar.Name = "Maximizar";
-            this.Maximizar.Size = new System.Drawing.Size(37, 23);
-            this.Maximizar.TabIndex = 0;
-            this.Maximizar.UseVisualStyleBackColor = true;
-            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
+            this.label4.Text = "Peso (Kilogramos)";
             // 
             // Form4
             // 
@@ -324,9 +296,9 @@
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo paciente";
+            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -350,8 +322,6 @@
         private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button Minimizar;
         private System.Windows.Forms.Button Cerrar;
-        private System.Windows.Forms.Button Maximizar;
     }
 }

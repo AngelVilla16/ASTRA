@@ -337,5 +337,69 @@ namespace Astra
         {
             arrastrar = false;
         }
+
+        private void BuscarPaciente()
+        {
+            if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
+            {
+                CargarPacientes();
+                return;
+            }
+            else
+            {
+                using(SqlConnection con = new SqlConnection(cadena_conexion))
+                {
+                    try
+                    {
+                        con.Open();
+                        string consulta = "SELECT IdPaciente, Nombre, Apellido, Edad, Altura, Peso FROM Pacientes WHERE Nombre LIKE @Busqueda OR Apellido LIKE @Busqueda";
+                        SqlCommand cmd = new SqlCommand(consulta, con);
+                        cmd.Parameters.AddWithValue("@Busqueda", "%" + txtBusqueda.Text + "%");
+                        DataTable tablaResultados = new DataTable();
+                        using (SqlDataAdapter adaptador = new SqlDataAdapter(cmd))
+                        {
+                            adaptador.Fill(tablaResultados);
+                        }
+                        dgvPacientes.DataSource = tablaResultados;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al buscar pacientes: " + ex.Message);
+                    }
+                }
+            }
+
+
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarPaciente();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            if (dgvPacientes.SelectedRows.Count > 0)
+            {
+                id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            }
+            else
+            {
+                MessageBox.Show("No existe ningun paciente " + MessageBoxIcon.Error);
+            }
+
+            if (id == 0)
+            {
+                MessageBox.Show("Seleccione un paciente para modificar su información");
+                return;
+            }
+            Form7 form7 = new Form7(id);
+            form7.PacienteActualizado += () =>
+            {
+                CargarPacientes();
+            };
+            form7.ShowDialog();
+        }
     }
 }

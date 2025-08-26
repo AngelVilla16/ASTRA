@@ -119,15 +119,7 @@ namespace Astra
             Application.Exit();
         }
 
-        private void Maximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void Minimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+       
         private bool arrastrar = false;
         private Point puntoInicio;
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -149,6 +141,19 @@ namespace Astra
         private void panel3_MouseUp(object sender, MouseEventArgs e)
         {
            arrastrar = false;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                txtContraseña.PasswordChar = '\0';
+
+            }
+            else
+            {
+                txtContraseña.PasswordChar = '*';
+            }
         }
     }
 

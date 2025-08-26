@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Astra.exe" version="1.0.0.16" publicKeyToken="0000000000000000" language="es-MX" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="Astra.exe" version="1.0.0.19" publicKeyToken="0000000000000000" language="es-MX" processorArchitecture="amd64" type="win32" />
   <description asmv2:iconFile="05e80c97-9ae7-43cf-a514-0241029e1599.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Astra" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Astra" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
     <commandLine file="Astra.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Astra.exe" size="16961536">
-      <assemblyIdentity name="Astra" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Astra.exe" size="20317696">
+      <assemblyIdentity name="Astra" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9r2t4OEMH1aHUknORvGZ2BGO2EAbfU5pzX4Wh5FAxZg=</dsig:DigestValue>
+        <dsig:DigestValue>rSwSLAS10su7Zh7/IHLbc420TqKia/8OLagUooA2r/w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -798,7 +798,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>RKzleyswK4auK4YmD8DjeVQN9rwQcsbgswQv+EtWIhs=</dsig:DigestValue>
+      <dsig:DigestValue>D/4Bl8I377Fh4u3J8GvKXwo7Z/ps9MlSK0Fb/OGIpJ0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AstraDB_log.ldf" size="8388608" writeableType="applicationData">
@@ -807,7 +807,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>BUlNvvCRjxYzPqCUPmzs0BQ1LM9boS13FJXRbxZaaLA=</dsig:DigestValue>
+      <dsig:DigestValue>6eEcBrAl2/Znp96CnEZPv/0huMSHxC55kR9PW18hcKo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\AstraDB.mdf" size="8388608" writeableType="applicationData">

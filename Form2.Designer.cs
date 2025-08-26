@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Cerrar = new System.Windows.Forms.Button();
-            this.Maximizar = new System.Windows.Forms.Button();
-            this.Minimizar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel31 = new System.Windows.Forms.Panel();
@@ -53,6 +53,8 @@
             // 
             this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel3);
@@ -67,6 +69,31 @@
             this.groupBox1.Size = new System.Drawing.Size(894, 447);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkBox1.Location = new System.Drawing.Point(629, 236);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(121, 20);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Mostrar contraseña";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(691, 273);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(116, 30);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // panel5
             // 
@@ -92,8 +119,6 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.Cerrar);
-            this.panel3.Controls.Add(this.Maximizar);
-            this.panel3.Controls.Add(this.Minimizar);
             this.panel3.Location = new System.Drawing.Point(7, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(887, 33);
@@ -113,30 +138,6 @@
             this.Cerrar.TabIndex = 2;
             this.Cerrar.UseVisualStyleBackColor = true;
             this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
-            // 
-            // Maximizar
-            // 
-            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
-            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximizar.Location = new System.Drawing.Point(806, 10);
-            this.Maximizar.Name = "Maximizar";
-            this.Maximizar.Size = new System.Drawing.Size(38, 23);
-            this.Maximizar.TabIndex = 1;
-            this.Maximizar.UseVisualStyleBackColor = true;
-            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
-            // 
-            // Minimizar
-            // 
-            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
-            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimizar.Location = new System.Drawing.Point(764, 10);
-            this.Minimizar.Name = "Minimizar";
-            this.Minimizar.Size = new System.Drawing.Size(36, 23);
-            this.Minimizar.TabIndex = 0;
-            this.Minimizar.UseVisualStyleBackColor = true;
-            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
             // 
             // panel1
             // 
@@ -195,7 +196,7 @@
             // 
             this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRegistrar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(607, 236);
+            this.btnRegistrar.Location = new System.Drawing.Point(530, 273);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(131, 30);
             this.btnRegistrar.TabIndex = 2;
@@ -263,7 +264,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button Cerrar;
-        private System.Windows.Forms.Button Maximizar;
-        private System.Windows.Forms.Button Minimizar;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

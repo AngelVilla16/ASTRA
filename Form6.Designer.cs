@@ -35,8 +35,6 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.Expediente = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Minimizar = new System.Windows.Forms.Button();
-            this.Maximizar = new System.Windows.Forms.Button();
             this.Cerrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -114,8 +112,6 @@
             // 
             this.panel1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.panel1.Controls.Add(this.Cerrar);
-            this.panel1.Controls.Add(this.Maximizar);
-            this.panel1.Controls.Add(this.Minimizar);
             this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1292, 28);
@@ -123,33 +119,6 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-
-            // 
-            // Minimizar
-            // 
-            this.Minimizar.BackColor = System.Drawing.Color.Transparent;
-            this.Minimizar.BackgroundImage = global::Astra.Properties.Resources.Minimizar;
-            this.Minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimizar.Location = new System.Drawing.Point(1160, 5);
-            this.Minimizar.Name = "Minimizar";
-            this.Minimizar.Size = new System.Drawing.Size(36, 23);
-            this.Minimizar.TabIndex = 0;
-            this.Minimizar.UseVisualStyleBackColor = false;
-            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click);
-            // 
-            // Maximizar
-            // 
-            this.Maximizar.BackColor = System.Drawing.Color.Transparent;
-            this.Maximizar.BackgroundImage = global::Astra.Properties.Resources.Maximizar;
-            this.Maximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximizar.Location = new System.Drawing.Point(1202, 5);
-            this.Maximizar.Name = "Maximizar";
-            this.Maximizar.Size = new System.Drawing.Size(34, 23);
-            this.Maximizar.TabIndex = 1;
-            this.Maximizar.UseVisualStyleBackColor = false;
-            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click);
             // 
             // Cerrar
             // 
@@ -192,7 +161,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Cerrar;
-        private System.Windows.Forms.Button Maximizar;
-        private System.Windows.Forms.Button Minimizar;
     }
 }

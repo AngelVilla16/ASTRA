@@ -120,18 +120,10 @@ namespace Astra
 
         private void Cerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
 
-        private void Maximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void Minimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        
         private bool arrastrar = false;
         private Point puntoInicio;
         private void panel1_MouseDown(object sender, MouseEventArgs e)

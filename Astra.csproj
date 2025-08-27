@@ -471,6 +471,11 @@
     <Content Include="Data\AstraDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\AstraDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>AstraDB.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\Cerrar sesion.png" />
     <None Include="Resources\Confirmar pacietne.png" />
     <None Include="Resources\Modificar1.png" />
     <None Include="Resources\Password icon.png" />

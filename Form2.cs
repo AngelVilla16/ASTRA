@@ -41,10 +41,17 @@ namespace Astra
         {
             string usuario = txtRegistroUsuario.Text;
             string contraseña = txtRegistroContraseña.Text;
+            string confirm = txtConfirmarContraseña.Text;
 
             if (usuario == "" || contraseña == "")
             {
                 MessageBox.Show("Por favor ingrese todos los datos");
+                return;
+            }
+            
+            if(confirm != contraseña)
+            {
+                MessageBox.Show("Las contraseñas no coinciden ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -118,10 +125,12 @@ namespace Astra
             if (checkBox1.Checked)
             {
                 txtRegistroContraseña.PasswordChar = '\0';
+                txtConfirmarContraseña.PasswordChar = '\0';
             }
             else
             {
                 txtRegistroContraseña.PasswordChar= '*';
+                txtConfirmarContraseña.PasswordChar = '*';
             }
         }
     }

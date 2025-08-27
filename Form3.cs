@@ -18,9 +18,11 @@ namespace Astra
       
         string ruta;
         string cadena_conexion;
-        public Form3()
+        private string usuarioActual;
+        public Form3(string usuario)
         {
             InitializeComponent();
+            usuarioActual = usuario;
             //Direcciones de la base de datos
 
 
@@ -30,6 +32,7 @@ namespace Astra
 
 
         }
+      
         //Metodo para cargar pacientes en el datagridview
         private void CargarPacientes()
         {
@@ -43,7 +46,7 @@ namespace Astra
                     con.Open();
 
                     // 1. Cargar todos los pacientes
-                    string consultaPacientes = "SELECT IdPaciente, Nombre, Apellido, Edad, Altura, Peso FROM Pacientes";
+                    string consultaPacientes = "SELECT IdPaciente AS ID, Nombre, Apellido, Edad, Altura, Peso FROM Pacientes";
                     DataTable tablaPacientes = new DataTable();
                     using (SqlDataAdapter adaptador = new SqlDataAdapter(consultaPacientes, con))
                     {
@@ -55,13 +58,15 @@ namespace Astra
                         tablaPacientes.Columns.Add("Alergias", typeof(string));
                     if (!tablaPacientes.Columns.Contains("Padecimientos"))
                         tablaPacientes.Columns.Add("Padecimientos", typeof(string));
-                    if(!tablaPacientes.Columns.Contains("Proxima_cita"))
-                        tablaPacientes.Columns.Add("Proxima_cita", typeof(DateTime));
+                    if(!tablaPacientes.Columns.Contains("Proxima cita"))
+                        tablaPacientes.Columns.Add("Proxima cita", typeof(DateTime));
+                    if (!tablaPacientes.Columns.Contains("Hora"));
+                        tablaPacientes.Columns.Add("Hora", typeof(TimeSpan));
 
                     // 3. Recorrer pacientes y obtener datos relacionados
                     foreach (DataRow fila in tablaPacientes.Rows)
                     {
-                        int idPaciente = Convert.ToInt32(fila["IdPaciente"]);
+                        int idPaciente = Convert.ToInt32(fila["ID"]);
 
                         // Obtener alergias
                         List<string> listaAlergias = new List<string>();
@@ -96,18 +101,44 @@ namespace Astra
                         fila["Padecimientos"] = string.Join(", ", listaPadecimientos);
                         // Obtener proxima cita
                         using (SqlCommand cmdCita = new SqlCommand(
-                            "SELECT Proxima_cita FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
+                              "SELECT Proxima_cita_Fecha FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
                         {
                             cmdCita.Parameters.AddWithValue("@IdPaciente", idPaciente);
-                            object cita = cmdCita.ExecuteScalar();
-                            if (cita != null && cita != DBNull.Value)
+                            using (SqlDataReader dr = cmdCita.ExecuteReader())
                             {
-                                fila["Proxima_cita"] = Convert.ToDateTime(cita);
+                                if (dr.Read())
+                                {
+                                    fila["Proxima cita"] = dr["Proxima_cita_Fecha"] != DBNull.Value ? dr["Proxima_cita_Fecha"] : DBNull.Value;
+
+                                
+                                   
+                                }
+                                else
+                                {
+                                    fila["Proxima cita"] = DBNull.Value;
+                                    
+                                }
                             }
-                            else
+                        }
+                        //Obtener hora
+                        using (SqlCommand cmdHora = new SqlCommand("SELECT Hora FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
+                        {
+                            cmdHora.Parameters.AddWithValue("@IdPaciente", idPaciente);
+                            using(SqlDataReader dataReader = cmdHora.ExecuteReader())
                             {
-                                fila["Proxima_cita"] = DBNull.Value; // Si no hay cita, dejamos el valor como nulo
+                                if (dataReader.Read())
+                                {
+                                    
+                                    fila["Hora"] = dataReader["Hora"] != DBNull.Value ? dataReader["Hora"] : DBNull.Value;
+                                    
+                                }
+                                else
+                                {
+                                    fila["Hora"] = DBNull.Value;
+                                }
                             }
+
+
                         }
                     }
 
@@ -129,6 +160,7 @@ namespace Astra
         private void Form3_Load(object sender, EventArgs e)
         {
             CargarPacientes();
+            Doctor.Text = usuarioActual;
         }
         //El boton de agregar pacientes
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
@@ -204,7 +236,7 @@ namespace Astra
                 MessageBox.Show("Seleccione un paciente para agendar su cita por favor");
                 return;
             }
-            int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            int id = int.Parse(dgvPacientes.CurrentRow.Cells["ID"].Value.ToString());
             Form5 form5 = new Form5(id);
             form5.CitaAgregada += () =>
             {
@@ -382,7 +414,7 @@ namespace Astra
 
             if (dgvPacientes.SelectedRows.Count > 0)
             {
-                id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+                id = int.Parse(dgvPacientes.CurrentRow.Cells["ID"].Value.ToString());
             }
             else
             {
@@ -400,6 +432,13 @@ namespace Astra
                 CargarPacientes();
             };
             form7.ShowDialog();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
     }
 }

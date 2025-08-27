@@ -30,9 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Doctor = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnExpediente = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -60,6 +63,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.Doctor);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtBusqueda);
             this.groupBox1.Controls.Add(this.panel3);
@@ -71,6 +76,27 @@
             this.groupBox1.Size = new System.Drawing.Size(1280, 695);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // Doctor
+            // 
+            this.Doctor.AutoSize = true;
+            this.Doctor.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Doctor.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Doctor.Location = new System.Drawing.Point(112, 32);
+            this.Doctor.Name = "Doctor";
+            this.Doctor.Size = new System.Drawing.Size(0, 22);
+            this.Doctor.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(9, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 22);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Doctor(a):";
             // 
             // btnBuscar
             // 
@@ -97,13 +123,27 @@
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel3.Controls.Add(this.btnCerrarSesion);
             this.panel3.Controls.Add(this.btnExpediente);
             this.panel3.Controls.Add(this.btnEliminar);
             this.panel3.Controls.Add(this.btnModificar);
             this.panel3.Location = new System.Drawing.Point(697, 529);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(496, 166);
+            this.panel3.Size = new System.Drawing.Size(572, 166);
             this.panel3.TabIndex = 12;
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackgroundImage = global::Astra.Properties.Resources.Cerrar_sesion;
+            this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(442, 17);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(83, 74);
+            this.btnCerrarSesion.TabIndex = 8;
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnExpediente
             // 
@@ -112,7 +152,7 @@
             this.btnExpediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExpediente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExpediente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpediente.Location = new System.Drawing.Point(393, 3);
+            this.btnExpediente.Location = new System.Drawing.Point(307, 7);
             this.btnExpediente.Name = "btnExpediente";
             this.btnExpediente.Size = new System.Drawing.Size(100, 92);
             this.btnExpediente.TabIndex = 7;
@@ -125,7 +165,7 @@
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Location = new System.Drawing.Point(213, 3);
+            this.btnEliminar.Location = new System.Drawing.Point(149, 7);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(111, 92);
             this.btnEliminar.TabIndex = 3;
@@ -221,10 +261,10 @@
             this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPacientes.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientes.Location = new System.Drawing.Point(6, 35);
+            this.dgvPacientes.Location = new System.Drawing.Point(6, 61);
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.RowHeadersWidth = 123;
-            this.dgvPacientes.Size = new System.Drawing.Size(1268, 488);
+            this.dgvPacientes.Size = new System.Drawing.Size(1268, 462);
             this.dgvPacientes.TabIndex = 6;
             // 
             // panel1
@@ -320,5 +360,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Doctor;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

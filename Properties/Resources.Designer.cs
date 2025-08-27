@@ -113,6 +113,16 @@ namespace Astra.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cerrar_sesion {
+            get {
+                object obj = ResourceManager.GetObject("Cerrar sesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Confirmar_cita {
             get {
                 object obj = ResourceManager.GetObject("Confirmar cita", resourceCulture);

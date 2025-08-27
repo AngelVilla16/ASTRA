@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,12 +37,20 @@ namespace Astra
             idpacienteseleccionado = IdPaciente;
         }
        
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            Hora.Format = DateTimePickerFormat.Time;
+            Hora.ShowUpDown = true;
+            this.Size = new System.Drawing.Size(879, 462);
+
+        }
         public class Cita
         {
             public DateTime NuevaCita { get; set; }
+            public TimeSpan Hora { get; set; }
 
         }
-
+        
         private void btnAgendar_Click(object sender, EventArgs e)
 
         {
@@ -49,7 +58,10 @@ namespace Astra
             
             Cita cita = new Cita();
 
-            cita.NuevaCita = mcCita.SelectionStart;
+            cita.NuevaCita = Calendario.SelectionStart;
+            TimeSpan horaCita = Hora.Value.TimeOfDay;
+            cita.Hora = horaCita ;
+            
             
 
             using (SqlConnection con = new SqlConnection(cadena_conexion))
@@ -57,15 +69,28 @@ namespace Astra
                 try
                 {
                     con.Open();
-                    //Insercion a la base de datos
+                    //Insercion a la base de datos mediante un update
 
-                    string actualizar = @"UPDATE Pacientes SET Proxima_cita = @Proxima_cita WHERE IdPaciente = @IdPaciente";
+                    using(SqlCommand cmd = new SqlCommand("UPDATE Pacientes SET Proxima_cita_Fecha = @Proxima_cita_Fecha WHERE IdPaciente = @IdPaciente", con))
+                    {
+                        cmd.Parameters.AddWithValue("@Proxima_cita_Fecha", cita.NuevaCita);
+                        cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        cmd.ExecuteNonQuery();
+                        
 
-                    SqlCommand cmd = new SqlCommand(actualizar, con);
-                    cmd.Parameters.AddWithValue("@Proxima_cita", cita.NuevaCita);
-                    cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cita seleccionada para la fecha: " + cita.NuevaCita.ToShortDateString());
+
+                    }
+                    using(SqlCommand cmd = new SqlCommand("UPDATE Pacientes SET Hora = @Hora WHERE IdPaciente = @IdPaciente", con))
+                    {
+                        cmd.Parameters.AddWithValue("@Hora", cita.Hora);
+                        cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        cmd.ExecuteNonQuery();
+
+
+                    }
+
+                    MessageBox.Show("Fecha y hora de la cita: " + cita.NuevaCita + " " + cita.Hora);
+
 
                     CitaAgregada?.Invoke();
                     this.Close();
@@ -106,5 +131,7 @@ namespace Astra
         {
             arrastrar = false;
         }
+
+        
     }
 }

@@ -44,6 +44,8 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtConfirmarContraseña = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -53,6 +55,8 @@
             // 
             this.groupBox1.BackgroundImage = global::Astra.Properties.Resources.Fondo_2;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.txtConfirmarContraseña);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.panel5);
@@ -76,7 +80,7 @@
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.checkBox1.Location = new System.Drawing.Point(629, 236);
+            this.checkBox1.Location = new System.Drawing.Point(629, 297);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(121, 20);
             this.checkBox1.TabIndex = 10;
@@ -87,7 +91,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(691, 273);
+            this.btnCancelar.Location = new System.Drawing.Point(692, 347);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 30);
             this.btnCancelar.TabIndex = 9;
@@ -175,7 +179,7 @@
             this.txtRegistroContraseña.BackColor = System.Drawing.SystemColors.MenuText;
             this.txtRegistroContraseña.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegistroContraseña.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtRegistroContraseña.Location = new System.Drawing.Point(629, 182);
+            this.txtRegistroContraseña.Location = new System.Drawing.Point(629, 152);
             this.txtRegistroContraseña.Name = "txtRegistroContraseña";
             this.txtRegistroContraseña.PasswordChar = '*';
             this.txtRegistroContraseña.Size = new System.Drawing.Size(179, 29);
@@ -196,7 +200,7 @@
             // 
             this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRegistrar.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(530, 273);
+            this.btnRegistrar.Location = new System.Drawing.Point(530, 347);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(131, 30);
             this.btnRegistrar.TabIndex = 2;
@@ -229,6 +233,29 @@
             this.label1.Size = new System.Drawing.Size(64, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(607, 211);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(236, 22);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Confirme su contraseña por favor";
+            // 
+            // txtConfirmarContraseña
+            // 
+            this.txtConfirmarContraseña.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtConfirmarContraseña.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmarContraseña.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtConfirmarContraseña.Location = new System.Drawing.Point(629, 249);
+            this.txtConfirmarContraseña.Name = "txtConfirmarContraseña";
+            this.txtConfirmarContraseña.PasswordChar = '*';
+            this.txtConfirmarContraseña.Size = new System.Drawing.Size(179, 29);
+            this.txtConfirmarContraseña.TabIndex = 12;
             // 
             // Form2
             // 
@@ -266,5 +293,7 @@
         private System.Windows.Forms.Button Cerrar;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtConfirmarContraseña;
+        private System.Windows.Forms.Label label4;
     }
 }

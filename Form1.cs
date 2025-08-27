@@ -21,7 +21,7 @@ namespace Astra
 
             InitializeComponent();
 
-            //Cadena de conexion para sqlite
+            //Cadena de conexion
 
 
             string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
@@ -74,7 +74,7 @@ namespace Astra
                         {
                             MessageBox.Show("Inicio de sesion exitoso");
 
-                            Form3 form3 = new Form3();
+                            Form3 form3 = new Form3(usuario);
                             form3.Show();
                             this.Hide();
                         }
@@ -84,8 +84,8 @@ namespace Astra
                         }
                     }
                 }
-                catch (SqlException ex) // Captura errores específicos de SQLite
-                {
+                catch (SqlException ex) 
+                {  // Captura errores específicos de SQL
                     MessageBox.Show($"Error de base de datos: {ex.Message}", "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     // Opcional: Debug.WriteLine(ex.ToString()); para ver más detalles en la salida de depuración
                 }
@@ -96,7 +96,7 @@ namespace Astra
                 // El 'using' se encarga de cerrar la conexión automáticamente al salir del bloque.
             }
         }
-
+        //Envia al formulario de registro
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {   
             txtUsuario.Clear();
@@ -118,10 +118,11 @@ namespace Astra
         {
             Application.Exit();
         }
-
+        //Variables para arrastrar y definir una localizacion de inicio de la pantalla
        
         private bool arrastrar = false;
         private Point puntoInicio;
+        //Evento para soltar fijar la localizacion de la ventana al soltar el click
         private void panel3_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -130,6 +131,7 @@ namespace Astra
                 puntoInicio = new Point(e.X, e.Y);
             }
         }
+        //evento para mover la localizacion de la ventana al mover el mouse mientras el boton este sostenido
         private void panel3_MouseMove(object sender, MouseEventArgs e)
         {
           if(arrastrar)
@@ -138,11 +140,13 @@ namespace Astra
                 this.Location = new Point(p.X - puntoInicio.X, p.Y - puntoInicio.Y);
             }
         }
+
+        //evento para cambiar la variable de arrastrar a falso
         private void panel3_MouseUp(object sender, MouseEventArgs e)
         {
            arrastrar = false;
         }
-
+        //Permite ver la contraseña
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)

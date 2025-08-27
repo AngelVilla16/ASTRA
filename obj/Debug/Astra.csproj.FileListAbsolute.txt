@@ -221,3 +221,4 @@ C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.exe
 C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.pdb
 C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.exe.config
 C:\Users\Angel\source\repos\Astra\obj\Debug\Astra.Form7.resources
+C:\Users\Angel\source\repos\Astra\bin\Debug\Data\AstraDB_log.ldf

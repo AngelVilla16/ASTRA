@@ -55,12 +55,21 @@ namespace Astra
                
                 paciente.Nombre = txtNombre.Text;
                 paciente.Apellidos = txtApellidos.Text;
+
+                
                 paciente.Edad = int.Parse(txtEdad.Text);
                 paciente.Altura = double.Parse(txtAltura.Text);
                 paciente.Peso = double.Parse(txtPeso.Text);
                 paciente.Alergia = txtAlergias.Text;
                 paciente.Padecimiento = txtPadecimientos.Text;
 
+                if (paciente.Edad <= 0 || paciente.Edad >= 100 )
+                {
+                    MessageBox.Show("Ingrese una edad valida ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+
+                }
+                
             }
             catch
             {

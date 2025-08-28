@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Astra.exe" version="1.0.0.20" publicKeyToken="0000000000000000" language="es-MX" processorArchitecture="amd64" type="win32" />
+  <asmv1:assemblyIdentity name="Astra.exe" version="1.0.0.21" publicKeyToken="0000000000000000" language="es-MX" processorArchitecture="amd64" type="win32" />
   <description asmv2:iconFile="05e80c97-9ae7-43cf-a514-0241029e1599.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>N+y1k+lRFdRKItbmMMKcSb+4GGw1gOycp6L6bwwH9yU=</dsig:DigestValue>
+        <dsig:DigestValue>/DeLYheevkbH3RL2VB57N44Eu2tKA1TSHy0fGvk5DIU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -816,7 +816,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>52cFcDi1Z2O5jgR7djPN1FvpeBPY/i5Wlyo2dbEs8WU=</dsig:DigestValue>
+      <dsig:DigestValue>PYQVgQRFMNfgF6w6N+vphSNQKmN7M90MYIdfop0UpuY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\AstraDB_log.ldf" size="516096" writeableType="applicationData">
@@ -825,7 +825,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>TcytUDLM+fdA9YJQZQRS3xJ95G2WGYUQ4B11Im8RJZM=</dsig:DigestValue>
+      <dsig:DigestValue>kRz1fKaa3qCpPlvBk3qh3dyBJcKqMxE3BxWPM1P9LEo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Microsoft.Data.SqlClient.SNI.arm64.dll" size="551976">

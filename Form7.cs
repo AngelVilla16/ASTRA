@@ -49,6 +49,111 @@ namespace Astra
         {
             arrastrar = false;
         }
+        private void CargarDatosAnteriores()
+
+        {
+            string edadprevia = "";
+            string pesoprevio = "";
+            string alturaprevia = "";
+            string padecimientoprevio = " ";
+            string alergiaprevia = "";
+
+
+            using(SqlConnection con = new SqlConnection(cadena_conexion))
+            {
+                try
+                {
+
+                    con.Open();
+
+                    string consulta = "SELECT Edad, Altura, Peso FROM Pacientes WHERE IdPaciente = @IdPaciente";
+                    using (SqlCommand cmd = new SqlCommand(consulta, con))
+                    {
+                        cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            edadprevia= reader["Edad"].ToString();
+                            alturaprevia = reader["Altura"].ToString();
+                            pesoprevio = reader["Peso"].ToString();
+
+                            txtEdadPrevio.Text = edadprevia;
+                            txtAlturaPrevia.Text = alturaprevia;
+                            txtPesoPrevio.Text = pesoprevio;
+                            
+                        }
+                       reader.Close();
+
+
+
+
+
+                    }
+
+                    string consulta2 = "SELECT Alergia FROM Alergias WHERE IdPaciente = @IdPaciente ";
+                    using(SqlCommand cmd2 = new SqlCommand(consulta2, con))
+                    {
+
+                        cmd2.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        SqlDataReader reader2 = cmd2.ExecuteReader();
+
+                        if (reader2.Read())
+                        {
+                            alergiaprevia = reader2["Alergia"].ToString();
+
+                            txtAlergiasPrevio.Text = alergiaprevia;
+
+
+                        }
+                        reader2.Close();
+
+
+                    }
+                    string consulta3 = "SELECT Padecimiento FROM Padecimientos WHERE IdPaciente = @IdPaciente";
+                    using(SqlCommand cmd3 = new SqlCommand(consulta3, con))
+                    {
+
+                        cmd3.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        SqlDataReader reader3 = cmd3.ExecuteReader();
+
+                        if (reader3.Read())
+                        {
+
+                            padecimientoprevio = reader3["Padecimiento"].ToString();
+                            txtPadecimientosPrevios.Text = padecimientoprevio;
+
+                        }
+                        reader3.Close();
+
+                    }
+
+
+
+
+                }
+
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error al cargar datos previos " + ex.Message);
+                    return;
+
+
+
+
+                }
+
+
+
+
+
+
+            }
+
+
+
+
+        }
         private void CargarNombrePaciente()
         {
             using(SqlConnection con = new SqlConnection(cadena_conexion))
@@ -67,7 +172,7 @@ namespace Astra
                         nombre = reader["Nombre"].ToString();
                         apellido = reader["Apellido"].ToString();
                         //Concatena el nombre y apellido
-                        txtPaciente.Text = $"{nombre} {apellido}";
+                        txtPaciente.Text = $"{nombre} + {apellido}";
                     }
                     else
                     {
@@ -83,6 +188,7 @@ namespace Astra
         private void Form7_Load(object sender, EventArgs e)
         {
             CargarNombrePaciente();
+            CargarDatosAnteriores();
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
@@ -90,11 +196,15 @@ namespace Astra
             int edad;
             double peso;
             double altura;
+            string alergia;
+            string padecimiento;
             try
             {
                 edad = int.Parse(txtEdad.Text);
                 peso = double.Parse(txtPeso.Text);
                 altura = double.Parse(txtAltura.Text);
+                alergia = txtAlergias.Text;
+                padecimiento = txtPadecimientos.Text; 
             }
             catch (Exception)
             {
@@ -109,11 +219,30 @@ namespace Astra
                     con.Open();
                     string actualizar = "UPDATE Pacientes SET Edad = @Edad, Altura = @Altura, Peso = @Peso";
 
-                    SqlCommand cmd = new SqlCommand(actualizar, con);
-                    cmd.Parameters.AddWithValue("@Edad", edad);
-                    cmd.Parameters.AddWithValue("@Peso", peso);
-                    cmd.Parameters.AddWithValue("Altura", altura);
-                    cmd.ExecuteNonQuery();
+                    using(SqlCommand cmd = new SqlCommand(actualizar, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Edad", edad);
+                        cmd.Parameters.AddWithValue("@Peso", peso);
+                        cmd.Parameters.AddWithValue("Altura", altura);
+                        cmd.ExecuteNonQuery();
+                    }
+                    string actualizaralergia = "UPDATE Alergias SET Alergia = @Alergia WHERE IdPaciente = @IdPaciente";
+                    using(SqlCommand cmd2 = new SqlCommand(actualizaralergia, con))
+                    {
+
+                        cmd2.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        cmd2.Parameters.AddWithValue("@Alergia", alergia);
+                        cmd2.ExecuteNonQuery();
+
+                    }
+                    string actualizarPadecimiento = "UPDATE Padecimientos SET Padecimiento = @Padecimiento WHERE IdPaciente = @IdPaciente";
+                    using(SqlCommand cmd3 = new SqlCommand(actualizarPadecimiento, con))
+                    {
+
+                        cmd3.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                        cmd3.Parameters.AddWithValue("@Padecimiento", padecimiento);
+
+                    }
                     MessageBox.Show("Datos actualizados del paciente ");
                     PacienteActualizado.Invoke();
                     this.Close();

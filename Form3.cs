@@ -160,7 +160,39 @@ namespace Astra
         private void Form3_Load(object sender, EventArgs e)
         {
             CargarPacientes();
-            Doctor.Text = usuarioActual;
+            NombreUsuario();
+        }
+        private void NombreUsuario()
+        {
+            string doctor;
+            
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
+            {
+                con.Open();
+                string nombre = "SELECT Doctor FROM Doctores WHERE Usuario = @Usuario";
+
+                using (SqlCommand cmd = new SqlCommand(nombre, con))
+                {
+                    cmd.Parameters.AddWithValue("@Usuario", usuarioActual);
+
+                    SqlDataReader reader = cmd.ExecuteReader(); 
+                    if (reader.Read())
+                    {
+                        doctor = reader["Doctor"].ToString();
+
+                        Doctor.Text = doctor;
+
+
+                    }
+
+
+
+                }
+
+                
+
+
+            }
         }
         //El boton de agregar pacientes
         private void btnAgregarPaciente_Click(object sender, EventArgs e)

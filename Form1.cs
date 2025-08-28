@@ -49,7 +49,7 @@ namespace Astra
 
                     // --- CORRECCIÓN DE LA CONSULTA Y LOS PARÁMETROS ---
                     // 1. Uso de parámetros nombrados (@usuario, @contraseña) - MUY RECOMENDADO
-                    string consulta = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
+                    string consulta = "SELECT COUNT(*) FROM Doctores WHERE Usuario = @Usuario AND Contraseña = @Contraseña";
 
                     
                     using (SqlCommand comando = new SqlCommand(consulta, con))

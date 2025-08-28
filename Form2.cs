@@ -39,11 +39,12 @@ namespace Astra
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            string nombre = txtNombre.Text;
             string usuario = txtRegistroUsuario.Text;
             string contraseña = txtRegistroContraseña.Text;
             string confirm = txtConfirmarContraseña.Text;
 
-            if (usuario == "" || contraseña == "")
+            if (usuario == "" || contraseña == "" || nombre == "")
             {
                 MessageBox.Show("Por favor ingrese todos los datos");
                 return;
@@ -60,7 +61,7 @@ namespace Astra
                 try
                 {
                     con.Open();
-                    string consulta = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @Usuario";
+                    string consulta = "SELECT COUNT(*) FROM Doctores WHERE Usuario = @Usuario";
                     SqlCommand verificar = new SqlCommand(consulta, con);
                     verificar.Parameters.AddWithValue("@Usuario", usuario);
                     int existe = (int)verificar.ExecuteScalar();
@@ -71,10 +72,11 @@ namespace Astra
                         return;
                     }
                     //Insertar el nuevo usuario
-                    string insertar = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES (@Usuario,@Contraseña)";
+                    string insertar = "INSERT INTO Doctores (Usuario, Contraseña, Doctor) VALUES (@Usuario,@Contraseña, @Doctor)";
                     SqlCommand cmd = new SqlCommand(insertar, con);
                     cmd.Parameters.AddWithValue("@Usuario", usuario);
                     cmd.Parameters.AddWithValue("@Contraseña", contraseña);
+                    cmd.Parameters.AddWithValue("@Doctor", nombre);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Usuario registrado con exito");
@@ -132,6 +134,11 @@ namespace Astra
                 txtRegistroContraseña.PasswordChar= '*';
                 txtConfirmarContraseña.PasswordChar = '*';
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

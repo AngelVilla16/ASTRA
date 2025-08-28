@@ -188,7 +188,7 @@ namespace Astra
                 return;
 
             int idpaciente = Convert.ToInt32
-                (dgvPacientes.SelectedRows[0].Cells["IdPaciente"].Value);
+                (dgvPacientes.SelectedRows[0].Cells["ID"].Value);
            
 
             using (SqlConnection conn = new SqlConnection(cadena_conexion))
@@ -255,7 +255,7 @@ namespace Astra
                 MessageBox.Show("Seleccione un paciente para agendar su cita por favor");
                 return;
             }
-            int id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            int id = int.Parse(dgvPacientes.CurrentRow.Cells["ID"].Value.ToString());
             Form5 form5 = new Form5(id);
             form5.CitaAgregada += () =>
             {
@@ -272,18 +272,22 @@ namespace Astra
            
 
              
-            object valor = dgvPacientes.CurrentRow.Cells["Proxima_cita"].Value;
-
+            object valor = dgvPacientes.CurrentRow.Cells["Proxima cita"].Value;
+            object valorhora = dgvPacientes.CurrentRow.Cells["Hora"].Value;
             if (string.IsNullOrEmpty(valor.ToString()))
             {
                 MessageBox.Show("No hay cita agendada, error al eliminar");
                 return;
             }
+            if (string.IsNullOrEmpty(valorhora.ToString()))
+            {
+                MessageBox.Show("No hay una hora registrada, error al eliminar");
+            }
             
             DialogResult confirmacion = MessageBox.Show("¿Esta seguro de que desea eliminar la cita del paciente?", "Confirmar eliminacion ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmacion == DialogResult.No)
                 return;
-            int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+            int idpaciente = int.Parse(dgvPacientes.CurrentRow.Cells["ID"].Value.ToString());
             //Variable de nuestra ruta de datos
            
             
@@ -293,7 +297,7 @@ namespace Astra
                 {
                     con.Open();
                     //Actualizacion de la base de datos
-                    string update = "UPDATE Pacientes SET Proxima_cita = NULL WHERE IdPaciente = @IdPaciente";
+                    string update = "UPDATE Pacientes SET Proxima_cita_Fecha = NULL, Hora = NULL WHERE IdPaciente = @IdPaciente";
                     //Comando para agregar valores y actualizar
                     SqlCommand cmd = new SqlCommand(update, con);
                     
@@ -316,7 +320,7 @@ namespace Astra
             
             if (dgvPacientes.SelectedRows.Count > 0)
             {
-                id = int.Parse(dgvPacientes.CurrentRow.Cells["IdPaciente"].Value.ToString());
+                id = int.Parse(dgvPacientes.CurrentRow.Cells["ID"].Value.ToString());
             }
             else
             {
@@ -384,7 +388,7 @@ namespace Astra
                     try
                     {
                         con.Open();
-                        string consulta = "SELECT IdPaciente, Nombre, Apellido, Edad, Altura, Peso FROM Pacientes WHERE Nombre LIKE @Busqueda OR Apellido LIKE @Busqueda";
+                        string consulta = "SELECT IdPaciente as ID, Nombre, Apellido, Edad, Altura, Peso, Proxima_cita_Fecha as 'Proxima cita', Hora FROM Pacientes WHERE Nombre LIKE @Busqueda OR Apellido LIKE @Busqueda";
                         SqlCommand cmd = new SqlCommand(consulta, con);
                         cmd.Parameters.AddWithValue("@Busqueda", "%" + txtBusqueda.Text + "%");
                         DataTable tablaResultados = new DataTable();

@@ -37,9 +37,11 @@ namespace Astra
             idpacienteseleccionado = IdPaciente;
         }
        
+       
         private void Form5_Load(object sender, EventArgs e)
         {
-            Hora.Format = DateTimePickerFormat.Time;
+            Hora.Format = DateTimePickerFormat.Custom;
+            Hora.CustomFormat= "HH:mm";
             Hora.ShowUpDown = true;
             this.Size = new System.Drawing.Size(879, 462);
 
@@ -57,9 +59,12 @@ namespace Astra
             
             
             Cita cita = new Cita();
+            DateTime fecha;
+            fecha = Calendario.SelectionStart;
+            TimeSpan hora_cita = new TimeSpan(Hora.Value.Hour, Hora.Value.Minute, 0);
 
             cita.NuevaCita = Calendario.SelectionStart;
-            TimeSpan horaCita = Hora.Value.TimeOfDay;
+            TimeSpan horaCita = new TimeSpan(Hora.Value.Hour, Hora.Value.Minute, 0);
             cita.Hora = horaCita ;
             
             
@@ -71,25 +76,51 @@ namespace Astra
                     con.Open();
                     //Insercion a la base de datos mediante un update
 
-                    using(SqlCommand cmd = new SqlCommand("UPDATE Pacientes SET Proxima_cita_Fecha = @Proxima_cita_Fecha WHERE IdPaciente = @IdPaciente", con))
+                    string consultar = "SELECT COUNT(*) FROM Pacientes WHERE Proxima_cita_Fecha = @Proxima_cita_Fecha AND Hora = @Hora";
+
+                    using (SqlCommand cmd = new SqlCommand(consultar, con))
                     {
-                        cmd.Parameters.AddWithValue("@Proxima_cita_Fecha", cita.NuevaCita);
-                        cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
-                        cmd.ExecuteNonQuery();
-                        
+                        //Añadir parametros
+                        cmd.Parameters.AddWithValue("@Proxima_cita_Fecha", fecha);
+                        cmd.Parameters.AddWithValue("@Hora", hora_cita);
+
+                        object resultado = cmd.ExecuteScalar();
+                        int cuenta = 0;
+                        if (resultado != null && resultado != DBNull.Value)
+                        {
+                            cuenta = Convert.ToInt32(resultado);
+
+                        }
+                        if (cuenta > 0)
+                        {
+                            MessageBox.Show("Cita ya agendada porfavor ingrese otra fecha y/o hora", "advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        else
+                        {
+                            using (SqlCommand cmd2 = new SqlCommand("UPDATE Pacientes SET Proxima_cita_Fecha = @Proxima_cita_Fecha WHERE IdPaciente = @IdPaciente", con))
+                            {
+                                cmd2.Parameters.AddWithValue("@Proxima_cita_Fecha", cita.NuevaCita);
+                                cmd2.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                                cmd2.ExecuteNonQuery();
+
+
+
+                            }
+                            using (SqlCommand cmd2 = new SqlCommand("UPDATE Pacientes SET Hora = @Hora WHERE IdPaciente = @IdPaciente", con))
+                            {
+                                cmd2.Parameters.AddWithValue("@Hora", cita.Hora);
+                                cmd2.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
+                                cmd2.ExecuteNonQuery();
+                              
+
+
+                            }
+                        }
 
 
                     }
-                    using(SqlCommand cmd = new SqlCommand("UPDATE Pacientes SET Hora = @Hora WHERE IdPaciente = @IdPaciente", con))
-                    {
-                        cmd.Parameters.AddWithValue("@Hora", cita.Hora);
-                        cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
-                        cmd.ExecuteNonQuery();
-
-
-                    }
-
-                    MessageBox.Show("Fecha y hora de la cita: " + cita.NuevaCita + " " + cita.Hora);
+                            MessageBox.Show("Fecha y hora de la cita: " + cita.NuevaCita + " " + cita.Hora);
 
 
                     CitaAgregada?.Invoke();

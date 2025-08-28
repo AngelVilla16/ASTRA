@@ -104,7 +104,7 @@ namespace Astra
 
                     cmdAlergias.ExecuteNonQuery();
                     cmdPadecimientos.ExecuteNonQuery();
-                    MessageBox.Show("Paciente registrado correctamente" + MessageBoxButtons.OK);
+                    MessageBox.Show("Paciente registrado correctamente");
                     // Disparar evento para actualizar el otro formulario
                     PacienteAgregado?.Invoke();
                     this.Close();

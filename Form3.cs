@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using System.IO;
-
+//using MySql.Data.MySqlClient;
 
 namespace Astra
 {
@@ -28,24 +28,23 @@ namespace Astra
 
 
             string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
-            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf; Integrated Security=True;Connect Timeout=30;";
 
 
         }
-      
+
         //Metodo para cargar pacientes en el datagridview
         private void CargarPacientes()
         {
-            // Aseguramos que la conexión permita múltiples lectores
-            string cadenaConexion = cadena_conexion + ";MultipleActiveResultSets=True";
+           
 
-            using (SqlConnection con = new SqlConnection(cadenaConexion))
+            using (SqlConnection con = new SqlConnection(cadena_conexion))
             {
                 try
                 {
                     con.Open();
 
-                    // 1. Cargar todos los pacientes
+                    // 1. Cargar pacientes
                     string consultaPacientes = "SELECT IdPaciente AS ID, Nombre, Apellido, Edad, Altura, Peso FROM Pacientes";
                     DataTable tablaPacientes = new DataTable();
                     using (SqlDataAdapter adaptador = new SqlDataAdapter(consultaPacientes, con))
@@ -53,55 +52,55 @@ namespace Astra
                         adaptador.Fill(tablaPacientes);
                     }
 
-                    // 2. Crear columnas extra en memoria
+                    // 2. Crear columnas adicionales
                     if (!tablaPacientes.Columns.Contains("Alergias"))
                         tablaPacientes.Columns.Add("Alergias", typeof(string));
+
                     if (!tablaPacientes.Columns.Contains("Padecimientos"))
                         tablaPacientes.Columns.Add("Padecimientos", typeof(string));
-                    if(!tablaPacientes.Columns.Contains("Proxima cita"))
+
+                    if (!tablaPacientes.Columns.Contains("Proxima cita"))
                         tablaPacientes.Columns.Add("Proxima cita", typeof(DateTime));
-                    if (!tablaPacientes.Columns.Contains("Hora"));
+
+                    if (!tablaPacientes.Columns.Contains("Hora"))
                         tablaPacientes.Columns.Add("Hora", typeof(TimeSpan));
 
-                    // 3. Recorrer pacientes y obtener datos relacionados
+                    // 3. Rellenar datos relacionados
                     foreach (DataRow fila in tablaPacientes.Rows)
                     {
                         int idPaciente = Convert.ToInt32(fila["ID"]);
 
-                        // Obtener alergias
-                        List<string> listaAlergias = new List<string>();
+                        // --- Alergias ---
                         using (SqlCommand cmdAlergias = new SqlCommand(
                             "SELECT Alergia FROM Alergias WHERE IdPaciente = @IdPaciente", con))
                         {
                             cmdAlergias.Parameters.AddWithValue("@IdPaciente", idPaciente);
-                            using (SqlDataReader dr = cmdAlergias.ExecuteReader())
+                            using (SqlDataAdapter da = new SqlDataAdapter(cmdAlergias))
                             {
-                                while (dr.Read())
-                                {
-                                    listaAlergias.Add(dr["Alergia"].ToString());
-                                }
+                                DataTable tAlergias = new DataTable();
+                                da.Fill(tAlergias);
+                                fila["Alergias"] = string.Join(", ",
+                                    tAlergias.AsEnumerable().Select(r => r["Alergia"].ToString()));
                             }
                         }
-                        fila["Alergias"] = string.Join(", ", listaAlergias);
 
-                        // Obtener padecimientos
-                        List<string> listaPadecimientos = new List<string>();
+                        // --- Padecimientos ---
                         using (SqlCommand cmdPadecimientos = new SqlCommand(
                             "SELECT Padecimiento FROM Padecimientos WHERE IdPaciente = @IdPaciente", con))
                         {
                             cmdPadecimientos.Parameters.AddWithValue("@IdPaciente", idPaciente);
-                            using (SqlDataReader dr = cmdPadecimientos.ExecuteReader())
+                            using (SqlDataAdapter da = new SqlDataAdapter(cmdPadecimientos))
                             {
-                                while (dr.Read())
-                                {
-                                    listaPadecimientos.Add(dr["Padecimiento"].ToString());
-                                }
+                                DataTable tPadecimientos = new DataTable();
+                                da.Fill(tPadecimientos);
+                                fila["Padecimientos"] = string.Join(", ",
+                                    tPadecimientos.AsEnumerable().Select(r => r["Padecimiento"].ToString()));
                             }
                         }
-                        fila["Padecimientos"] = string.Join(", ", listaPadecimientos);
-                        // Obtener proxima cita
+
+                        // --- Próxima cita + hora ---
                         using (SqlCommand cmdCita = new SqlCommand(
-                              "SELECT Proxima_cita_Fecha FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
+                            "SELECT Proxima_cita_Fecha, Hora FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
                         {
                             cmdCita.Parameters.AddWithValue("@IdPaciente", idPaciente);
                             using (SqlDataReader dr = cmdCita.ExecuteReader())
@@ -109,49 +108,18 @@ namespace Astra
                                 if (dr.Read())
                                 {
                                     fila["Proxima cita"] = dr["Proxima_cita_Fecha"] != DBNull.Value ? dr["Proxima_cita_Fecha"] : DBNull.Value;
-
-                                
-                                   
-                                }
-                                else
-                                {
-                                    fila["Proxima cita"] = DBNull.Value;
-                                    
+                                    fila["Hora"] = dr["Hora"] != DBNull.Value ? dr["Hora"] : DBNull.Value;
                                 }
                             }
-                        }
-                        //Obtener hora
-                        using (SqlCommand cmdHora = new SqlCommand("SELECT Hora FROM Pacientes WHERE IdPaciente = @IdPaciente", con))
-                        {
-                            cmdHora.Parameters.AddWithValue("@IdPaciente", idPaciente);
-                            using(SqlDataReader dataReader = cmdHora.ExecuteReader())
-                            {
-                                if (dataReader.Read())
-                                {
-                                    
-                                    fila["Hora"] = dataReader["Hora"] != DBNull.Value ? dataReader["Hora"] : DBNull.Value;
-                                    
-                                }
-                                else
-                                {
-                                    fila["Hora"] = DBNull.Value;
-                                }
-                            }
-
-
                         }
                     }
 
-                    // 4. Mostrar en el DataGridView
+                    // 4. Mostrar en DataGridView
                     dgvPacientes.DataSource = tablaPacientes;
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Error de base de datos: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error inesperado: " + ex.Message);
+                    MessageBox.Show("Error al cargar pacientes: " + ex.Message);
                 }
             }
         }
@@ -371,12 +339,26 @@ namespace Astra
 
         private void Minimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if(this.WindowState == FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState= FormWindowState.Minimized;
+            }
         }
 
         private void Maximizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized ;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -476,5 +458,7 @@ namespace Astra
             form1.Show();
             this.Close();
         }
+
+        
     }
 }

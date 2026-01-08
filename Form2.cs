@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-
+//using MySql.Data.MySqlClient;
 
 
 namespace Astra
@@ -31,7 +31,7 @@ namespace Astra
 
 
             string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
-            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf; Integrated Security=True;Connect Timeout=30;";
 
 
 

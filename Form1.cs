@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+//using MySql.Data.MySqlClient;
 using System.IO;
 namespace Astra
 {
@@ -24,12 +25,17 @@ namespace Astra
             //Cadena de conexion
 
 
-            string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
-            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+           string ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+             cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf; Integrated Security=True;Connect Timeout=30;";
+            
 
 
 
 
+        }
+       
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {

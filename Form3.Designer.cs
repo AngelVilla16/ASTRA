@@ -105,7 +105,7 @@
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(509, 618);
+            this.btnBuscar.Location = new System.Drawing.Point(509, 567);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(137, 33);
             this.btnBuscar.TabIndex = 15;
@@ -115,7 +115,7 @@
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(509, 569);
+            this.txtBusqueda.Location = new System.Drawing.Point(509, 534);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(137, 26);
             this.txtBusqueda.TabIndex = 14;

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+//using MySql.Data.MySqlClient;
 namespace Astra
 {
     public partial class Form7 : Form
@@ -23,8 +24,8 @@ namespace Astra
         {
             InitializeComponent();
             idpacienteseleccionado = IdPaciente;
-            ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
-            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf;Integrated Security=True;Connect Timeout=30";
+           ruta = Path.Combine(Application.StartupPath, @"Data\AstraDB.mdf");
+            cadena_conexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\AstraDB.mdf; Integrated Security=True;Connect Timeout=30;";
 
         }
         private bool arrastrar = false;
@@ -205,6 +206,14 @@ namespace Astra
                 altura = double.Parse(txtAltura.Text);
                 alergia = txtAlergias.Text;
                 padecimiento = txtPadecimientos.Text; 
+
+                if( edad<=0 || edad>= 100)
+                {
+
+                    MessageBox.Show("Ingrese una edad valida ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+
+                }
             }
             catch (Exception)
             {
@@ -217,10 +226,11 @@ namespace Astra
                 try
                 {
                     con.Open();
-                    string actualizar = "UPDATE Pacientes SET Edad = @Edad, Altura = @Altura, Peso = @Peso";
+                    string actualizar = "UPDATE Pacientes SET Edad = @Edad, Altura = @Altura, Peso = @Peso WHERE IdPaciente = @IdPaciente";
 
                     using(SqlCommand cmd = new SqlCommand(actualizar, con))
                     {
+                        cmd.Parameters.AddWithValue("@IdPaciente", idpacienteseleccionado);
                         cmd.Parameters.AddWithValue("@Edad", edad);
                         cmd.Parameters.AddWithValue("@Peso", peso);
                         cmd.Parameters.AddWithValue("Altura", altura);

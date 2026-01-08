@@ -79,18 +79,17 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(-2, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(879, 462);
+            this.groupBox1.Size = new System.Drawing.Size(645, 428);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cita nueva";
-            
             // 
             // Hora
             // 
             this.Hora.CalendarFont = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hora.CustomFormat = "HH:mm";
             this.Hora.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hora.Location = new System.Drawing.Point(508, 182);
+            this.Hora.Location = new System.Drawing.Point(374, 115);
             this.Hora.Margin = new System.Windows.Forms.Padding(1);
             this.Hora.Name = "Hora";
             this.Hora.Size = new System.Drawing.Size(166, 29);
@@ -101,11 +100,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(492, 131);
+            this.label1.Location = new System.Drawing.Point(371, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 18);
+            this.label1.Size = new System.Drawing.Size(99, 18);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Ingrese la hora formato 12 horas HH:mm";
+            this.label1.Text = "Ingrese la hora ";
             // 
             // Calendario
             // 
@@ -143,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 288);
+            this.ClientSize = new System.Drawing.Size(630, 407);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
